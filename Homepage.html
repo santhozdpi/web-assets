@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Meet Value Health at Asembia AXS27 at Wynn Tower Suite Parlor, Las Vegas. Explore Pharma, Hub, and Specialty Pharmacy technology solutions.">
+<title>Value Health | Asembia 2027 — Wynn Las Vegas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abyss:#020617;
+  --deep:#081426;
+  --navy:#0A1B3A;
+  --royal:#142A44;
+  --cobalt:#123499;
+  --electric:#2563EB;
+  --slate-blue:#4A74A7;
+  --ice:#DCEAF7;
+  --white:#FFFFFF;
+  --muted:#B8CCE0;
+  --line:rgba(220,234,247,.2);
+  --glow-blue:rgba(37,99,235,.55);
+  --glow-ice:rgba(220,234,247,.42);
+  --display:"IBM Plex Sans",sans-serif;
+  --body:"Inter",sans-serif;
+  --max:1220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  margin:0;
+  background:var(--abyss);
+  color:var(--ice);
+  font-family:var(--body);
+  font-weight:400;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--display);cursor:pointer}
+img{max-width:100%;display:block}
+.vh-hub{overflow:clip;background:var(--abyss)}
+.vh-container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+
+/* Scroll Pop-In From Left Animation */
+.vh-reveal{
+  opacity:0;
+  transform:translateX(-68px) scale(.96);
+  transition:opacity .68s ease-out,transform .78s cubic-bezier(.22,1.25,.36,1);
+  will-change:opacity,transform;
+}
+.vh-reveal.is-visible{
+  opacity:1;
+  transform:translateX(0) scale(1);
+}
+.vh-delay-1{transition-delay:.08s}
+.vh-delay-2{transition-delay:.16s}
+.vh-delay-3{transition-delay:.24s}
+
+/* Header (Same Dark Brutalist + Glow) */
+.vh-header{
+  height:80px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(3,8,24,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:2px solid rgba(220,234,247,.22);
+  box-shadow:0 8px 32px rgba(0,7,45,.65);
+}
+.vh-header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.vh-logo{
+  display:inline-flex;
+  align-items:center;
+  transition:opacity .25s,transform .25s;
+}
+.vh-logo:hover{opacity:.9;transform:translateY(-1px)}
+.vh-logo img{width:184px;max-height:54px;object-fit:contain;object-position:left center}
+.vh-nav{display:flex;align-items:center;gap:34px}
+.vh-nav a{
+  font-family:var(--display);
+  font-size:15.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--ice);
+  transition:color .25s,text-shadow .25s;
+}
+.vh-nav a:hover{
+  color:var(--white);
+  text-shadow:0 0 14px rgba(96,165,250,.95);
+}
+
+/* Flash / Glow Buttons */
+.vh-button{
+  position:relative;
+  overflow:hidden;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border:2px solid var(--ice);
+  border-radius:4px;
+  padding:13px 22px;
+  background:linear-gradient(135deg,var(--electric),var(--cobalt));
+  color:var(--white);
+  font-family:var(--display);
+  font-size:14px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  box-shadow:4px 4px 0 var(--deep),0 0 22px var(--glow-blue);
+  transition:transform .25s,box-shadow .25s,background .25s;
+}
+.vh-button:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:70%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-24deg);
+  transition:left .55s ease;
+  pointer-events:none;
+}
+.vh-button:hover:before{left:140%}
+.vh-button:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--abyss),0 0 32px rgba(59,130,246,.85);
+}
+.vh-button-light{
+  background:linear-gradient(135deg,var(--white),var(--ice));
+  color:var(--deep);
+  border-color:var(--white);
+  box-shadow:4px 4px 0 var(--cobalt),0 0 26px rgba(220,234,247,.55);
+}
+.vh-button-light:hover{
+  background:var(--white);
+  color:var(--abyss);
+  box-shadow:6px 6px 0 var(--electric),0 0 36px rgba(220,234,247,.9);
+}
+.vh-secondary-button{
+  position:relative;
+  overflow:hidden;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:13px 20px;
+  color:var(--white);
+  font-family:var(--display);
+  font-size:14px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  border:2px solid var(--ice);
+  border-radius:4px;
+  background:rgba(8,20,38,.76);
+  backdrop-filter:blur(8px);
+  box-shadow:4px 4px 0 var(--royal),0 0 20px rgba(74,116,167,.45);
+  transition:background .25s,border-color .25s,transform .25s,box-shadow .25s;
+}
+.vh-secondary-button:hover{
+  background:rgba(18,52,153,.84);
+  border-color:var(--white);
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--electric),0 0 28px rgba(59,130,246,.8);
+}
+.vh-mobile-toggle{display:none;border:2px solid rgba(220,234,247,.35);border-radius:4px;background:rgba(8,20,38,.8);color:var(--ice);font-family:var(--display);font-size:24px;padding:6px 11px}
+
+.vh-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--display);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
+  color:var(--ice);
+  margin:0 0 14px;
+  text-shadow:0 0 16px rgba(59,130,246,.85);
+}
+.vh-eyebrow:before{content:"";width:28px;height:3px;background:var(--electric);box-shadow:0 0 12px var(--electric)}
+
+/* =========================================================
+   SECTION 01: EVENT HERO (Wynn Resorts.png, NO Left Text Card)
+========================================================= */
+.vh-event-hero{
+  position:relative;
+  isolation:isolate;
+  padding:52px 0 58px;
+  background-color:var(--deep);
+  background-image:url("Wynn Resorts.png");
+  background-size:cover;
+  background-position:center;
+  color:var(--white);
+  overflow:hidden;
+  border-bottom:2px solid rgba(220,234,247,.25);
+}
+.vh-hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 22%,rgba(37,99,235,.26),transparent 46%),
+    radial-gradient(circle at 84% 72%,rgba(74,116,167,.22),transparent 48%),
+    linear-gradient(98deg,rgba(2,6,23,.78) 0%,rgba(8,20,38,.52) 54%,rgba(8,20,38,.36) 100%);
+}
+.vh-hero-flare{
+  position:absolute;
+  right:8%;
+  top:14%;
+  width:240px;
+  height:240px;
+  z-index:1;
+  pointer-events:none;
+  background:radial-gradient(circle,rgba(220,234,247,.38) 0%,rgba(59,130,246,.16) 40%,transparent 72%);
+  filter:blur(10px);
+  animation:vhPulseLight 4.5s ease-in-out infinite alternate;
+}
+@keyframes vhPulseLight{
+  from{opacity:.45;transform:scale(.94)}
+  to{opacity:.95;transform:scale(1.08)}
+}
+.vh-event-hero .vh-container{position:relative;z-index:2}
+
+.vh-hero-split{
+  display:grid;
+  grid-template-columns:1.25fr .85fr;
+  gap:36px;
+  align-items:center;
+}
+
+/* Left Hero Text Directly on Background (No Card) */
+.vh-hero-info{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:8px 0;
+}
+.vh-hero-info h1{
+  font:700 clamp(32px,3.8vw,48px)/1.1 var(--display);
+  letter-spacing:-.02em;
+  color:var(--white);
+  margin:0 0 18px;
+  text-shadow:0 0 28px rgba(37,99,235,.65),0 4px 20px rgba(0,7,45,.92);
+}
+.vh-hero-info h1 span{
+  color:var(--ice);
+  text-shadow:0 0 24px rgba(220,234,247,.9),0 2px 16px rgba(0,7,45,.9);
+}
+.vh-hero-support{
+  font-family:var(--body);
+  font-size:16.5px;
+  font-weight:500;
+  line-height:1.68;
+  color:var(--ice);
+  margin:0 0 28px;
+  max-width:600px;
+  text-shadow:0 2px 14px rgba(0,7,45,.95);
+}
+.vh-hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+
+/* Right Meet Value Health Card (Lighter Blue Frosted Glass, Borderless Logos) */
+.vh-hero-venue-card{
+  position:relative;
+  padding:30px 28px 32px;
+  background:linear-gradient(135deg,rgba(74,116,167,.30) 0%,rgba(59,130,246,.22) 55%,rgba(220,234,247,.16) 100%);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border:1.5px solid rgba(220,234,247,.46);
+  border-radius:8px 8px 26px 8px;
+  box-shadow:0 20px 50px rgba(2,6,23,.45),inset 0 1px 0 rgba(255,255,255,.32),0 0 38px rgba(74,116,167,.36);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  text-align:center;
+}
+.vh-dual-logos{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:22px;
+}
+.vh-partner-box{
+  min-height:56px;
+  padding:6px 4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+}
+.vh-partner-box img{max-height:44px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 2px 10px rgba(2,6,23,.55))}
+.vh-venue-title{
+  font:700 28px/1.15 var(--display);
+  color:var(--white);
+  margin:0 0 8px;
+  text-shadow:0 0 18px rgba(59,130,246,.55);
+}
+.vh-venue-sub{
+  font-family:var(--body);
+  font-size:15px;
+  color:var(--muted);
+  margin:0;
+}
+.vh-venue-divider{
+  height:2px;
+  width:100%;
+  margin:22px 0;
+  background:linear-gradient(90deg,transparent,rgba(220,234,247,.42),transparent);
+  border:0;
+}
+.vh-venue-place{
+  font:700 22px/1.2 var(--display);
+  color:var(--ice);
+  margin:0 0 6px;
+  text-shadow:0 0 16px rgba(74,116,167,.6);
+}
+.vh-venue-city{
+  font-family:var(--body);
+  font-size:15px;
+  color:var(--muted);
+  margin:0;
+}
+
+/* =========================================================
+   SECTION 02: CHOOSE YOUR INDUSTRY (Live Images + Neural Canvas)
+========================================================= */
+.vh-industries{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:52px 0 60px;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(37,99,235,.32),transparent 42%),
+    radial-gradient(circle at 88% 24%,rgba(74,116,167,.28),transparent 46%),
+    radial-gradient(circle at 65% 88%,rgba(18,52,153,.42),transparent 50%),
+    linear-gradient(135deg,#020617 0%,#081426 48%,#0B1F47 100%);
+  color:var(--ice);
+  border-bottom:2px solid rgba(220,234,247,.2);
+}
+.vh-showcase-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.85}
+.vh-industries .vh-container{position:relative;z-index:2}
+
+.vh-center-heading{
+  text-align:center;
+  max-width:740px;
+  margin:0 auto 34px;
+}
+.vh-center-heading h2{
+  font:700 clamp(32px,4.2vw,48px)/1.08 var(--display);
+  letter-spacing:-.02em;
+  color:var(--white);
+  margin:0 0 12px;
+  text-shadow:0 0 26px rgba(59,130,246,.55);
+}
+.vh-center-heading p{
+  font-family:var(--body);
+  font-size:16px;
+  font-weight:400;
+  line-height:1.68;
+  color:var(--muted);
+  margin:0;
+}
+
+.vh-industry-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.vh-industry-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  background:
+    radial-gradient(circle at 85% 15%,rgba(37,99,235,.22),transparent 48%),
+    linear-gradient(155deg,#0B1A36 0%,#081426 62%,#040B1A 100%);
+  border:2px solid rgba(220,234,247,.32);
+  border-radius:6px 24px 6px 24px;
+  overflow:hidden;
+  box-shadow:6px 6px 0 var(--cobalt),0 0 32px rgba(37,99,235,.22);
+  transition:transform .3s cubic-bezier(.22,1.25,.36,1),box-shadow .3s,border-color .3s;
+}
+.vh-industry-card:hover{
+  transform:translate(-3px,-6px);
+  border-color:var(--white);
+  box-shadow:9px 9px 0 var(--electric),0 0 42px rgba(59,130,246,.52);
+}
+
+.vh-card-media{
+  position:relative;
+  height:200px;
+  overflow:hidden;
+  background:linear-gradient(135deg,#061028,#123499);
+  border-bottom:2px solid rgba(220,234,247,.22);
+  display:grid;
+  place-items:center;
+}
+.vh-card-media img{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .6s;
+}
+.vh-industry-card:hover .vh-card-media img{transform:scale(1.06)}
+.vh-card-media:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background:linear-gradient(180deg,rgba(8,20,38,.12) 0%,rgba(4,11,26,.76) 100%);
+  pointer-events:none;
+}
+.vh-card-tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  z-index:3;
+  padding:5px 11px;
+  border-radius:3px;
+  background:rgba(2,6,23,.84);
+  border:1.5px solid var(--slate-blue);
+  color:var(--ice);
+  font-family:var(--display);
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+.vh-card-svg{
+  position:relative;
+  z-index:0;
+  width:88px;
+  height:88px;
+  opacity:.88;
+  filter:drop-shadow(0 0 18px rgba(59,130,246,.7));
+}
+
+.vh-card-body{
+  padding:24px 24px 26px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+.vh-card-body h3{
+  font:700 24px/1.18 var(--display);
+  color:var(--white);
+  margin:0 0 10px;
+  text-shadow:0 0 16px rgba(74,116,167,.45);
+}
+.vh-card-hook{
+  font-family:var(--body);
+  font-size:15.5px;
+  font-weight:600;
+  line-height:1.48;
+  color:var(--ice);
+  margin:0 0 10px;
+}
+.vh-card-desc{
+  font-family:var(--body);
+  font-size:14.5px;
+  font-weight:400;
+  line-height:1.68;
+  color:var(--muted);
+  margin:0 0 22px;
+  flex:1;
+}
+.vh-card-link{
+  position:relative;
+  overflow:hidden;
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  width:100%;
+  padding:12px 16px;
+  border:2px solid rgba(220,234,247,.42);
+  border-radius:4px;
+  background:rgba(18,52,153,.35);
+  color:var(--white);
+  font-family:var(--display);
+  font-size:14px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  box-shadow:3px 3px 0 var(--abyss);
+  transition:background .25s,border-color .25s,box-shadow .25s,transform .25s;
+}
+.vh-card-link:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:70%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:skewX(-24deg);
+  transition:left .55s ease;
+}
+.vh-card-link:hover:before{left:140%}
+.vh-card-link:hover{
+  background:linear-gradient(135deg,var(--electric),var(--cobalt));
+  border-color:var(--white);
+  box-shadow:4px 4px 0 var(--abyss),0 0 24px var(--glow-blue);
+  transform:translate(-1px,-1px);
+}
+
+/* =========================================================
+   SECTION 03: LET'S CONNECT AT ASEMBIA AXS27
+========================================================= */
+.vh-connect-section{
+  position:relative;
+  overflow:hidden;
+  padding:52px 0 58px;
+  background:
+    radial-gradient(circle at 22% 30%,rgba(37,99,235,.28),transparent 45%),
+    radial-gradient(circle at 82% 75%,rgba(74,116,167,.24),transparent 48%),
+    linear-gradient(120deg,#020617 0%,#081426 55%,#0E234E 100%);
+  color:var(--ice);
+  border-bottom:2px solid rgba(220,234,247,.2);
+}
+.vh-connect-wrap{
+  max-width:880px;
+  margin-inline:auto;
+  text-align:center;
+}
+.vh-connect-wrap h2{
+  font:700 clamp(32px,4.2vw,46px)/1.08 var(--display);
+  letter-spacing:-.02em;
+  color:var(--white);
+  margin:0 0 12px;
+  text-shadow:0 0 26px rgba(59,130,246,.5);
+}
+.vh-connect-sub{
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.7;
+  color:var(--muted);
+  max-width:660px;
+  margin:0 auto 28px;
+}
+
+.vh-event-details-box{
+  text-align:left;
+  padding:26px 30px;
+  margin-bottom:20px;
+  background:
+    radial-gradient(circle at 90% 20%,rgba(37,99,235,.22),transparent 48%),
+    rgba(8,20,38,.86);
+  border:2px solid rgba(220,234,247,.34);
+  border-radius:8px;
+  box-shadow:7px 7px 0 var(--cobalt),0 0 36px rgba(37,99,235,.24);
+}
+.vh-event-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:16px;
+}
+.vh-event-list li{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-family:var(--body);
+  font-size:17px;
+  font-weight:500;
+  color:var(--white);
+  padding-bottom:14px;
+  border-bottom:1px solid rgba(220,234,247,.14);
+}
+.vh-event-list li:last-child{
+  padding-bottom:0;
+  border-bottom:0;
+}
+.vh-event-icon{
+  width:38px;
+  height:38px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  border-radius:4px;
+  background:rgba(37,99,235,.26);
+  border:1.5px solid rgba(220,234,247,.35);
+  color:var(--ice);
+  box-shadow:0 0 14px rgba(59,130,246,.45);
+}
+
+.vh-request-btn{
+  width:100%;
+  padding:18px 28px;
+  font-size:17px;
+  border-radius:6px;
+}
+
+/* Footer (Same Dark Brutalist + Glow) */
+.vh-footer{
+  padding:46px 0 22px;
+  background:
+    radial-gradient(circle at 90% 10%,rgba(18,52,153,.28),transparent 45%),
+    #03091B;
+  color:var(--ice);
+  font-family:var(--body);
+}
+.vh-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;padding-bottom:30px}
+.vh-footer .vh-logo{margin-bottom:16px}
+.vh-footer-description{
+  font-family:var(--body);
+  font-size:14.5px;
+  font-weight:400;
+  line-height:1.7;
+  color:var(--muted);
+  max-width:340px;
+  margin:0;
+}
+.vh-footer h4{
+  font:700 17.5px var(--display);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--white);
+  margin:4px 0 16px;
+  text-shadow:0 0 12px rgba(59,130,246,.45);
+}
+.vh-footer-links{display:flex;flex-direction:column;gap:12px}
+.vh-footer-links a{
+  font-family:var(--body);
+  font-size:14px;
+  font-weight:500;
+  color:var(--muted);
+  transition:color .2s,text-shadow .2s;
+}
+.vh-footer-links a:hover{color:var(--white);text-shadow:0 0 12px rgba(96,165,250,.85)}
+.vh-footer-bottom{
+  padding-top:18px;
+  border-top:1px solid rgba(220,234,247,.18);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  font-family:var(--body);
+  font-size:13.5px;
+  font-weight:500;
+  color:var(--muted);
+}
+.vh-footer-bottom a{color:var(--ice);font-family:var(--body);font-weight:600}
+.vh-footer-bottom a:hover{color:var(--white);text-decoration:underline}
+
+@media(max-width:980px){
+ .vh-hero-split{grid-template-columns:1fr;gap:26px}
+ .vh-industry-grid{grid-template-columns:1fr 1fr}
+ .vh-footer-grid{grid-template-columns:1.5fr 1fr 1fr}.vh-footer-grid>div:first-child{grid-column:1/-1}
+}
+@media(max-width:700px){
+ .vh-container{width:calc(100% - 32px)}
+ .vh-header{height:72px}.vh-logo img{width:155px;max-height:46px}
+ .vh-mobile-toggle{display:block}.vh-header-cta{display:none}
+ .vh-nav{display:none;position:absolute;top:71px;left:0;right:0;padding:14px 22px 20px;background:var(--deep);border-bottom:2px solid rgba(220,234,247,.25);flex-direction:column;align-items:stretch;gap:0}
+ .vh-nav.open{display:flex}.vh-nav a{padding:14px 4px;border-bottom:1px solid var(--line);font-size:16px}
+ .vh-event-hero{padding:36px 0 42px}
+ .vh-hero-venue-card{padding:22px 18px}
+ .vh-dual-logos{gap:10px}
+ .vh-industries{padding:40px 0 46px}
+ .vh-industry-grid{grid-template-columns:1fr}
+ .vh-connect-section{padding:40px 0 44px}
+ .vh-event-details-box{padding:20px 18px}
+ .vh-event-list li{font-size:15.5px}
+ .vh-footer{padding:38px 0 20px}.vh-footer-grid{grid-template-columns:1fr 1fr;gap:26px 18px}.vh-footer-grid>div:first-child{grid-column:1/-1}
+ .vh-footer-bottom{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:390px){.vh-footer-grid{grid-template-columns:1fr}.vh-footer-grid>div:first-child{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+ .vh-reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="vh-hub">
+
+<!-- SAME HEADER (Using Logo.png) -->
+<header class="vh-header">
+ <div class="vh-container vh-header-inner">
+  <a href="https://valuehealthai.com/" class="vh-logo" aria-label="Value Health home"><img src="Logo.png" alt="Value Health"></a>
+  <button class="vh-mobile-toggle" id="vhMobileToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav class="vh-nav" id="vhNavigation">
+   <a href="https://valuehealthai.com/pharma/">Pharma</a>
+   <a href="https://valuehealthai.com/hub/">Hub</a>
+   <a href="https://valuehealthai.com/specialty-pharmacy/">Specialty Pharmacy</a>
+  </nav>
+  <a href="https://valuehealthai.com/contact/" class="vh-button vh-header-cta">Book a Meeting <span>↗</span></a>
+ </div>
+</header>
+
+<!-- SECTION 01: EVENT HERO (Wynn Resorts.png, Left Text Without Background Card) -->
+<section class="vh-event-hero" id="event-hero">
+ <div class="vh-hero-overlay" aria-hidden="true"></div>
+ <div class="vh-hero-flare" aria-hidden="true"></div>
+ <div class="vh-container">
+  <div class="vh-hero-split">
+
+   <!-- Left: Event Information (Direct on Hero Background, No Card) -->
+   <div class="vh-hero-info vh-reveal">
+    <p class="vh-eyebrow">Event Information</p>
+    <h1>Your biggest patient support challenges deserve <span>more than a hallway conversation.</span></h1>
+    <p class="vh-hero-support">Join Value Health at Asembia AXS27 for focused, executive discussions on AI-enabled benefit verification, market access, hub automation, and connected specialty pharmacy operations.</p>
+    <div class="vh-hero-actions">
+     <a href="#connect" class="vh-button vh-button-light">Private Meeting <span>→</span></a>
+     <a href="#industries" class="vh-secondary-button">Explore Solutions <span>↓</span></a>
+    </div>
+   </div>
+
+   <!-- Right: Meet Value Health & Wynn Venue Card (Using Logo.png + AXS27-04-1.png) -->
+   <aside class="vh-hero-venue-card vh-reveal vh-delay-1" aria-label="Asembia 2027 Venue Details">
+    <div>
+     <div class="vh-dual-logos">
+      <div class="vh-partner-box">
+       <img src="Logo.png" alt="Value Health">
+      </div>
+      <div class="vh-partner-box">
+       <img src="AXS27-04-1.png" alt="Asembia AXS27">
+      </div>
+     </div>
+     <h2 class="vh-venue-title">Meet Value Health</h2>
+     <p class="vh-venue-sub">One-on-one discussions at Asembia 2027.</p>
+    </div>
+
+    <hr class="vh-venue-divider">
+
+    <div>
+     <h3 class="vh-venue-place">Wynn Tower Suite Parlor</h3>
+     <p class="vh-venue-city">Wynn &amp; Encore, Las Vegas</p>
+    </div>
+   </aside>
+
+  </div>
+ </div>
+</section>
+
+<!-- SECTION 02: CHOOSE YOUR INDUSTRY (With Live Images Inside the 3 Cards) -->
+<section class="vh-industries" id="industries">
+ <canvas class="vh-showcase-canvas" id="vhShowcaseCanvas" aria-hidden="true"></canvas>
+ <div class="vh-container">
+
+  <div class="vh-center-heading vh-reveal">
+   <p class="vh-eyebrow">Choose Your Industry</p>
+   <h2>Let's start with your world.</h2>
+   <p>Choose your industry. Explore solutions aligned with your business priorities.</p>
+  </div>
+
+  <div class="vh-industry-grid">
+
+   <!-- Card 1: Pharma & Biotech -->
+   <article class="vh-industry-card vh-reveal vh-delay-1">
+    <div class="vh-card-media">
+     <span class="vh-card-tag">01 // Pharma</span>
+     <img src="AI-Powered Pharmaceutical Innovation-1.png" alt="Pharmaceutical and biotechnology research laboratory" onerror="this.remove();">
+     <svg class="vh-card-svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <polygon points="32,6 54,19 54,45 32,58 10,45 10,19" stroke="#DCEAF7" stroke-width="2.2"/>
+      <polygon points="32,16 45,24 45,40 32,48 19,40 19,24" stroke="#60A5FA" stroke-width="2"/>
+      <circle cx="32" cy="32" r="5" fill="#DCEAF7"/>
+     </svg>
+    </div>
+    <div class="vh-card-body">
+     <h3>Pharma &amp; Biotech</h3>
+     <p class="vh-card-hook">Your next launch shouldn't mean starting over.</p>
+     <p class="vh-card-desc">Connect patient journeys, simplify brand access programs, and deploy AI-ready workflows built to scale across therapies.</p>
+     <a href="https://valuehealthai.com/pharma/" class="vh-card-link">Explore Pharma Solutions <span>→</span></a>
+    </div>
+   </article>
+
+   <!-- Card 2: HUB Providers -->
+   <article class="vh-industry-card vh-reveal vh-delay-2">
+    <div class="vh-card-media">
+     <span class="vh-card-tag">02 // Hub Services</span>
+     <img src="Patient Support Hub Infographic.png" alt="Healthcare hub operations and digital patient support coordination" onerror="this.remove();">
+     <svg class="vh-card-svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <circle cx="32" cy="32" r="9" stroke="#DCEAF7" stroke-width="2.2"/>
+      <circle cx="14" cy="16" r="5" stroke="#60A5FA" stroke-width="2"/>
+      <circle cx="50" cy="16" r="5" stroke="#60A5FA" stroke-width="2"/>
+      <circle cx="14" cy="48" r="5" stroke="#60A5FA" stroke-width="2"/>
+      <circle cx="50" cy="48" r="5" stroke="#60A5FA" stroke-width="2"/>
+      <line x1="18" y1="20" x2="25" y2="26" stroke="#DCEAF7" stroke-width="2"/>
+      <line x1="46" y1="20" x2="39" y2="26" stroke="#DCEAF7" stroke-width="2"/>
+      <line x1="18" y1="44" x2="25" y2="38" stroke="#DCEAF7" stroke-width="2"/>
+      <line x1="46" y1="44" x2="39" y2="38" stroke="#DCEAF7" stroke-width="2"/>
+     </svg>
+    </div>
+    <div class="vh-card-body">
+     <h3>HUB Providers</h3>
+     <p class="vh-card-hook">More cases shouldn't mean more manual work.</p>
+     <p class="vh-card-desc">Automate eBV, ePA, document intake, and contact center QA so your patient support teams handle higher volume with precision.</p>
+     <a href="https://valuehealthai.com/hub/" class="vh-card-link">Explore HUB Solutions <span>→</span></a>
+    </div>
+   </article>
+
+   <!-- Card 3: Specialty Pharmacies -->
+   <article class="vh-industry-card vh-reveal vh-delay-3">
+    <div class="vh-card-media">
+     <span class="vh-card-tag">03 // Pharmacy</span>
+     <img src="Specialty Drugs in Caring Hands.png" alt="Specialty pharmacy clinical medications and therapy fulfillment" onerror="this.remove();">
+     <svg class="vh-card-svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <rect x="12" y="12" width="40" height="40" rx="6" stroke="#DCEAF7" stroke-width="2.2"/>
+      <path d="M32 21V43M21 32H43" stroke="#60A5FA" stroke-width="3.2" stroke-linecap="round"/>
+     </svg>
+    </div>
+    <div class="vh-card-body">
+     <h3>Specialty Pharmacies</h3>
+     <p class="vh-card-hook">The prescription is in. What's slowing the next step?</p>
+     <p class="vh-card-desc">Remove intake friction, accelerate prior authorization turnaround, and coordinate faster time-to-therapy for complex prescriptions.</p>
+     <a href="https://valuehealthai.com/specialty-pharmacy/" class="vh-card-link">Explore Pharmacy Solutions <span>→</span></a>
+    </div>
+   </article>
+
+  </div>
+ </div>
+</section>
+
+<!-- SECTION 03: LET'S CONNECT AT ASEMBIA AXS27 -->
+<section class="vh-connect-section" id="connect">
+ <div class="vh-container">
+  <div class="vh-connect-wrap vh-reveal">
+   <p class="vh-eyebrow">Let's Connect at Asembia AXS27</p>
+   <h2>Your next meaningful conversation starts here.</h2>
+   <p class="vh-connect-sub">Discuss your business priorities, patient support needs and opportunities with Value Health.</p>
+
+   <div class="vh-event-details-box">
+    <ul class="vh-event-list">
+     <li>
+      <span class="vh-event-icon" aria-hidden="true">
+       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </span>
+      <span>April 25–29, 2027</span>
+     </li>
+     <li>
+      <span class="vh-event-icon" aria-hidden="true">
+       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </span>
+      <span>7 AM–7 PM</span>
+     </li>
+     <li>
+      <span class="vh-event-icon" aria-hidden="true">
+       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </span>
+      <span>Wynn Tower Suite Parlor, Las Vegas</span>
+     </li>
+    </ul>
+   </div>
+
+   <a href="https://valuehealthai.com/contact/" class="vh-button vh-button-light vh-request-btn">Request a Private Meeting <span>↗</span></a>
+  </div>
+ </div>
+</section>
+
+<!-- SAME FOOTER (Using Logo.png) -->
+<footer class="vh-footer">
+ <div class="vh-container vh-reveal">
+  <div class="vh-footer-grid">
+   <div>
+    <a href="https://valuehealthai.com/" class="vh-logo"><img src="Logo.png" alt="Value Health"></a>
+    <p class="vh-footer-description">Enabling connected healthcare experiences through technology solutions that support pharmaceutical patient services and healthcare operations.</p>
+   </div>
+   <div><h4>Solutions</h4><div class="vh-footer-links">
+    <a href="https://valuehealthai.com/pharma/">Pharma Solutions</a><a href="https://valuehealthai.com/hub/">Hub Solutions</a><a href="https://valuehealthai.com/specialty-pharmacy/">Specialty Pharmacy</a>
+   </div></div>
+   <div><h4>Explore</h4><div class="vh-footer-links">
+    <a href="https://valuehealthai.com/about-us/">About Us</a><a href="https://valuehealthai.com/resources/">Resources</a><a href="https://valuehealthai.com/blog/">Insights &amp; Blogs</a>
+   </div></div>
+   <div><h4>Connect</h4><div class="vh-footer-links">
+    <a href="https://valuehealthai.com/contact/">Contact Us</a><a href="https://www.linkedin.com/company/value-health-ai/">LinkedIn ↗</a><a href="https://valuehealthai.com/contact/">Book a Meeting</a>
+   </div></div>
+  </div>
+  <div class="vh-footer-bottom"><span>© <span id="vhYear">2026</span> Value Health. All rights reserved.</span><a href="https://valuehealthai.com/privacy-policy/">Privacy Policy</a></div>
+ </div>
+</footer>
+
+</div>
+
+<script>
+/* Mobile Navigation */
+const menuToggle=document.getElementById("vhMobileToggle"),nav=document.getElementById("vhNavigation");
+menuToggle.addEventListener("click",()=>{
+ const open=nav.classList.toggle("open");
+ menuToggle.setAttribute("aria-expanded",String(open));
+ menuToggle.textContent=open?"×":"☰";
+});
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+ nav.classList.remove("open");
+ menuToggle.setAttribute("aria-expanded","false");
+ menuToggle.textContent="☰";
+}));
+document.getElementById("vhYear").textContent=new Date().getFullYear();
+
+/* Scroll Pop-In From Left Observer */
+(function initScrollReveal(){
+ const targets=document.querySelectorAll(".vh-reveal");
+ if(!("IntersectionObserver" in window)){
+  targets.forEach(el=>el.classList.add("is-visible"));
+  return;
+ }
+ const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+   if(entry.isIntersecting){
+    entry.target.classList.add("is-visible");
+    observer.unobserve(entry.target);
+   }
+  });
+ },{threshold:0.12,rootMargin:"0px 0px -30px 0px"});
+ targets.forEach(el=>observer.observe(el));
+})();
+
+/* Pharma + AI Neural Network Background Loop (Blue Palette in Section 2) */
+(function initShowcaseAnimation(){
+ const canvas=document.getElementById("vhShowcaseCanvas");
+ if(!canvas)return;
+ const ctx=canvas.getContext("2d");
+ const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ let w=0,h=0,dpr=1,nodes=[],hexes=[],pulses=[];
+
+ function resize(){
+  const rect=canvas.parentElement.getBoundingClientRect();
+  dpr=Math.min(window.devicePixelRatio||1,2);
+  w=rect.width;h=rect.height;
+  canvas.width=w*dpr;canvas.height=h*dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  buildScene();
+ }
+
+ function buildScene(){
+  const nodeCount=Math.max(26,Math.min(56,Math.floor((w*h)/14500)));
+  nodes=[];
+  for(let i=0;i<nodeCount;i++){
+   nodes.push({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    vx:(Math.random()-.5)*0.3,
+    vy:(Math.random()-.5)*0.3,
+    r:1.7+Math.random()*2.2,
+    isHub:i%5===0,
+    phase:Math.random()*Math.PI*2
+   });
+  }
+  const hexCount=Math.max(5,Math.floor(w/210));
+  hexes=[];
+  for(let i=0;i<hexCount;i++){
+   hexes.push({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    size:24+Math.random()*26,
+    rot:Math.random()*Math.PI,
+    vRot:(Math.random()-.5)*0.0024,
+    vx:(Math.random()-.5)*0.13,
+    vy:(Math.random()-.5)*0.13
+   });
+  }
+  pulses=[];
+ }
+
+ function drawHex(x,y,r,rot,alpha){
+  ctx.save();
+  ctx.translate(x,y);
+  ctx.rotate(rot);
+  ctx.beginPath();
+  for(let i=0;i<6;i++){
+   const angle=(Math.PI/3)*i;
+   const px=Math.cos(angle)*r,py=Math.sin(angle)*r;
+   if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);
+  }
+  ctx.closePath();
+  ctx.strokeStyle=`rgba(74,116,167,${alpha})`;
+  ctx.lineWidth=1;
+  ctx.stroke();
+  ctx.restore();
+ }
+
+ function frame(time){
+  ctx.clearRect(0,0,w,h);
+
+  for(const hx of hexes){
+   if(!reducedMotion){
+    hx.x+=hx.vx;hx.y+=hx.vy;hx.rot+=hx.vRot;
+    if(hx.x<-60)hx.x=w+60;if(hx.x>w+60)hx.x=-60;
+    if(hx.y<-60)hx.y=h+60;if(hx.y>h+60)hx.y=-60;
+   }
+   drawHex(hx.x,hx.y,hx.size,hx.rot,0.14);
+   drawHex(hx.x,hx.y,hx.size*0.58,-hx.rot*0.8,0.09);
+  }
+
+  const maxDist=Math.min(195,Math.max(130,w*0.15));
+  for(let i=0;i<nodes.length;i++){
+   const a=nodes[i];
+   if(!reducedMotion){
+    a.x+=a.vx;a.y+=a.vy;
+    if(a.x<0||a.x>w)a.vx*=-1;
+    if(a.y<0||a.y>h)a.vy*=-1;
+   }
+   for(let j=i+1;j<nodes.length;j++){
+    const b=nodes[j];
+    const dx=b.x-a.x,dy=b.y-a.y;
+    const dist=Math.hypot(dx,dy);
+    if(dist<maxDist){
+     const alpha=(1-dist/maxDist)*0.28;
+     ctx.beginPath();
+     ctx.moveTo(a.x,a.y);
+     ctx.lineTo(b.x,b.y);
+     ctx.strokeStyle=`rgba(74,116,167,${alpha})`;
+     ctx.lineWidth=1;
+     ctx.stroke();
+
+     if(!reducedMotion&&pulses.length<16&&Math.random()<0.002){
+      pulses.push({a,b,t:0,speed:0.013+Math.random()*0.014});
+     }
+    }
+   }
+  }
+
+  for(let i=pulses.length-1;i>=0;i--){
+   const p=pulses[i];
+   p.t+=p.speed;
+   if(p.t>=1){pulses.splice(i,1);continue;}
+   const px=p.a.x+(p.b.x-p.a.x)*p.t;
+   const py=p.a.y+(p.b.y-p.a.y)*p.t;
+   const grad=ctx.createRadialGradient(px,py,0,px,py,8);
+   grad.addColorStop(0,"rgba(220,234,247,0.98)");
+   grad.addColorStop(0.5,"rgba(59,130,246,0.55)");
+   grad.addColorStop(1,"rgba(18,52,153,0)");
+   ctx.fillStyle=grad;
+   ctx.beginPath();
+   ctx.arc(px,py,8,0,Math.PI*2);
+   ctx.fill();
+  }
+
+  const tSec=time*0.002;
+  for(const n of nodes){
+   const pulse=0.65+0.35*Math.sin(tSec+n.phase);
+   if(n.isHub){
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,n.r*3.2,0,Math.PI*2);
+    ctx.strokeStyle=`rgba(220,234,247,${0.2*pulse})`;
+    ctx.lineWidth=1;
+    ctx.stroke();
+   }
+   ctx.beginPath();
+   ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+   ctx.fillStyle=n.isHub?`rgba(220,234,247,${0.75*pulse})`:`rgba(74,116,167,${0.62*pulse})`;
+   ctx.fill();
+  }
+
+  if(!reducedMotion)requestAnimationFrame(frame);
+ }
+
+ resize();
+ window.addEventListener("resize",resize);
+ requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

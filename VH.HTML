@@ -1,0 +1,3243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Value Health - Hero, Industry Selection, Studio Invitation &amp; Testimonials</title>
+
+<style>
+/* =========================================
+   RESET
+========================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    background: #020308;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* =========================================
+   SECTION 1: HERO
+========================================= */
+
+.vh-hero {
+    --orange: #FE602F;
+    --blue: #023A94;
+    --deep-blue: #013476;
+
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 62vh;
+    min-height: 460px;
+    max-height: 620px;
+
+    overflow: hidden;
+
+    background: radial-gradient(
+        circle at 50% 42%,
+        #070b1e 0%,
+        #020308 78%
+    );
+
+    color: #fff;
+}
+
+/* WEBGL CANVAS */
+
+#hero-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    pointer-events: none;
+}
+
+/* BACKGROUND CONTRAST + SEAMLESS MERGE INTO SECTION 2 (#020308) */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(2, 3, 8, 0) 64%,
+            rgba(2, 3, 8, 0.72) 88%,
+            #020308 100%
+        ),
+        radial-gradient(circle at 18% 22%, rgba(2, 58, 148, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 82% 72%, rgba(254, 96, 47, 0.07) 0%, transparent 42%),
+        radial-gradient(
+            ellipse at 42% 48%,
+            rgba(2, 3, 10, 0.10) 0%,
+            rgba(2, 3, 10, 0.22) 55%,
+            rgba(2, 3, 8, 0.56) 100%
+        );
+}
+
+/* =========================================
+   HERO TOP NAVBAR
+========================================= */
+
+.vh-nav {
+    position: relative;
+    z-index: 6;
+
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 18px 55px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.vh-nav-logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+
+    padding: 7px 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.22);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.vh-nav-logo:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.36);
+}
+
+.vh-nav-logo img {
+    display: block;
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+}
+
+.vh-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.vh-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+}
+
+.vh-nav-link {
+    color: rgba(235, 240, 255, 0.86);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    transition: color 0.25s ease;
+}
+
+.vh-nav-link:hover {
+    color: #ffffff;
+}
+
+/* White CTA Button with Black Text */
+.vh-nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    box-shadow: 0 4px 18px rgba(255, 255, 255, 0.22);
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.vh-nav-cta:hover {
+    transform: translateY(-1px);
+    background: #f1f5ff;
+    color: #000000;
+    box-shadow: 0 6px 24px rgba(255, 255, 255, 0.38);
+}
+
+/* MAIN HERO CONTAINER */
+
+.vh-container {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1480px;
+    flex: 1;
+
+    margin: 0 auto;
+    padding: 16px 55px 28px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* LEFT CONTENT */
+
+.vh-copy {
+    position: relative;
+    z-index: 3;
+
+    width: 58%;
+    max-width: 780px;
+
+    text-align: left;
+}
+
+.vh-label {
+    margin-bottom: 10px;
+
+    color: var(--orange);
+
+    font-size: 21px;
+    font-weight: 600;
+
+    line-height: 1.35;
+    letter-spacing: .28px;
+}
+
+.vh-copy h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(38px, 4.4vw, 60px);
+    font-weight: 500;
+
+    line-height: 1.07;
+    letter-spacing: -1.4px;
+}
+
+.vh-copy h1 span {
+    display: block;
+    color: #a9bcff;
+    font-weight: 500;
+}
+
+.vh-description {
+    max-width: 700px;
+    margin: 14px 0 0;
+
+    color: rgba(235, 240, 255, .84);
+
+    font-size: 18px;
+    font-weight: 350;
+
+    line-height: 1.5;
+    letter-spacing: .15px;
+}
+
+/* COLLABORATION LOGOS — WHITE CARDS WITH SOFT WHITE GLOW */
+
+.collaboration-mark {
+    --join-duration: 1.25s;
+
+    position: absolute;
+    z-index: 5;
+
+    top: 54%;
+    right: 4%;
+
+    transform: translateY(-50%);
+
+    width: min(500px, 39%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.collaboration-mark__card {
+    flex: 1 1 0;
+    height: 76px;
+    padding: 14px 20px;
+    border-radius: 14px;
+
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow:
+        0 0 22px rgba(255, 255, 255, 0.42),
+        0 0 42px rgba(255, 255, 255, 0.16),
+        0 12px 30px rgba(0, 0, 0, 0.42);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.collaboration-mark__card--value {
+    animation:
+        value-joins var(--join-duration)
+        cubic-bezier(.2,.75,.25,1) .12s forwards;
+}
+
+.collaboration-mark__card--axs {
+    animation:
+        axs-joins var(--join-duration)
+        cubic-bezier(.2,.75,.25,1) .12s forwards;
+}
+
+.collaboration-mark__logo {
+    display: block;
+    width: 100%;
+    height: 42px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.collaboration-mark__axs {
+    scale: 1.26;
+}
+
+.collaboration-mark__divider {
+    width: 1px;
+    height: 42px;
+    flex: 0 0 1px;
+
+    background: rgba(255, 255, 255, 0.42);
+
+    transform: scaleY(0);
+    transform-origin: center;
+
+    animation: divider-appears .45s ease .88s forwards;
+}
+
+@keyframes value-joins {
+    0% {
+        opacity: 0;
+        transform: translateX(-52px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateX(4px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes axs-joins {
+    0% {
+        opacity: 0;
+        transform: translateX(52px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateX(-4px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes divider-appears {
+    to {
+        transform: scaleY(1);
+    }
+}
+
+/* =========================================
+   UNIFIED SECTIONS 2 & 3 FLOW WRAPPER
+========================================= */
+
+.vh-flow-wrapper {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(180deg, #020308 0%, #050918 35%, #070b1e 72%, #020308 100%);
+}
+
+#flow-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+
+    -webkit-mask-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.85) 18%,
+        rgba(0, 0, 0, 1) 82%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+    mask-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.85) 18%,
+        rgba(0, 0, 0, 1) 82%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+}
+
+/* =========================================
+   SECTION 2: INDUSTRY SELECTOR
+========================================= */
+
+.vh-industry-section {
+    --img-pharma: url("https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1200&q=80");
+    --img-hub: url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80");
+    --img-specialty: url("https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=80");
+
+    --orange: #FE602F;
+    --blue: #023A94;
+    --periwinkle: #a9bcff;
+
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    padding: 50px 0 66px;
+
+    overflow: hidden;
+    background: transparent;
+    color: #ffffff;
+}
+
+/* Subtle divider line between Section 2 & Section 3 (matches Footer line) */
+
+.vh-industry-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    z-index: 2;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(169, 188, 255, 0.22) 30%,
+        rgba(254, 96, 47, 0.35) 55%,
+        rgba(169, 188, 255, 0.22) 80%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+.vh-industry-lines {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 0;
+
+    width: 100%;
+    height: 210px;
+    pointer-events: none;
+
+    background-image:
+        repeating-linear-gradient(
+            -22deg,
+            rgba(169, 188, 255, 0.08) 0px,
+            rgba(169, 188, 255, 0.08) 1px,
+            transparent 1px,
+            transparent 20px
+        ),
+        repeating-linear-gradient(
+            22deg,
+            rgba(254, 96, 47, 0.06) 0px,
+            rgba(254, 96, 47, 0.06) 1px,
+            transparent 1px,
+            transparent 20px
+        );
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.75) 45%,
+        rgba(0, 0, 0, 0.45) 75%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.75) 45%,
+        rgba(0, 0, 0, 0.45) 75%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.vh-industry-container {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1480px;
+
+    margin: 0 auto;
+    padding: 0 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vh-industry-header {
+    margin-bottom: 30px;
+}
+
+.vh-industry-heading {
+    margin: 0;
+    color: #ffffff;
+
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.8px;
+}
+
+.vh-industry-subtext {
+    margin: 8px 0 0;
+    color: rgba(215, 226, 255, 0.78);
+
+    font-size: clamp(15px, 1.2vw, 17.5px);
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.1px;
+}
+
+.vh-industry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 54px;
+    width: 100%;
+    max-width: 1240px;
+}
+
+.vh-industry-card {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 215px;
+    padding: 18px 22px;
+
+    border-radius: 26px 0 26px 0;
+    overflow: hidden;
+
+    text-decoration: none;
+    color: #ffffff;
+    background: #070e22;
+    border: 1px solid rgba(169, 188, 255, 0.18);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
+
+    transition:
+        transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.vh-industry-card-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform: scale(1.01);
+    filter: brightness(0.96) contrast(1.04);
+
+    transition:
+        transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 0.45s ease,
+        filter 0.45s ease;
+}
+
+.vh-industry-card--pharma .vh-industry-card-bg {
+    background-image: var(--img-pharma);
+}
+
+.vh-industry-card--hub .vh-industry-card-bg {
+    background-image: var(--img-hub);
+}
+
+.vh-industry-card--specialty .vh-industry-card-bg {
+    background-image: var(--img-specialty);
+}
+
+.vh-industry-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background: linear-gradient(
+        180deg,
+        rgba(4, 8, 20, 0.08) 0%,
+        rgba(4, 8, 20, 0.28) 52%,
+        rgba(4, 8, 20, 0.72) 100%
+    );
+
+    transition: opacity 0.4s ease;
+}
+
+.vh-industry-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    opacity: 0;
+    background:
+        radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.36) 0%, transparent 55%),
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.18) 0%,
+            rgba(186, 230, 253, 0.22) 45%,
+            rgba(255, 255, 255, 0.14) 100%
+        );
+    background-size: 200% 200%;
+
+    transition: opacity 0.4s ease;
+}
+
+.vh-industry-card-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+
+    background: linear-gradient(
+        180deg,
+        rgba(8, 16, 38, 0.05) 0%,
+        rgba(8, 16, 38, 0.32) 56%,
+        rgba(5, 10, 26, 0.72) 100%
+    );
+
+    transition: opacity 0.4s ease;
+}
+
+.vh-industry-card:hover,
+.vh-industry-card.is-selected {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.92);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.48),
+        0 16px 40px rgba(0, 0, 0, 0.55),
+        0 0 28px rgba(255, 255, 255, 0.26);
+}
+
+.vh-industry-card:hover .vh-industry-card-bg,
+.vh-industry-card.is-selected .vh-industry-card-bg {
+    transform: scale(1.07);
+    opacity: 0.72;
+    filter: brightness(1.08) contrast(1.04);
+}
+
+.vh-industry-card:hover::before,
+.vh-industry-card.is-selected::before {
+    opacity: 0.55;
+}
+
+.vh-industry-card:hover::after,
+.vh-industry-card.is-selected::after {
+    opacity: 1;
+}
+
+.vh-industry-card.is-selected::after {
+    animation: vh-white-wave 6s ease-in-out infinite;
+}
+
+.vh-industry-card:hover .vh-industry-card-scrim,
+.vh-industry-card.is-selected .vh-industry-card-scrim {
+    opacity: 1;
+}
+
+@keyframes vh-white-wave {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.vh-industry-tag {
+    position: relative;
+    z-index: 4;
+
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: rgba(7, 14, 34, 0.58);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    color: rgba(255, 255, 255, 0.95);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.vh-industry-card:hover .vh-industry-tag,
+.vh-industry-card.is-selected .vh-industry-tag {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.65);
+}
+
+.vh-industry-card-bottom {
+    position: relative;
+    z-index: 4;
+    margin-top: auto;
+}
+
+.vh-industry-card-title {
+    margin: 0;
+    color: #ffffff;
+
+    font-size: clamp(20px, 1.7vw, 24px);
+    font-weight: 650;
+    line-height: 1.15;
+    letter-spacing: -0.35px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+.vh-industry-card-desc {
+    margin: 5px 0 0;
+    color: rgba(240, 244, 255, 0.92);
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.38;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+}
+
+.vh-industry-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.vh-industry-cta {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    transition: color 0.25s ease;
+}
+
+.vh-industry-card:hover .vh-industry-cta,
+.vh-industry-card.is-selected .vh-industry-cta {
+    color: #ffffff;
+}
+
+/* White CTA Arrow Button with Black Text */
+.vh-industry-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vh-industry-card:hover .vh-industry-arrow,
+.vh-industry-card.is-selected .vh-industry-arrow {
+    transform: translateX(4px) scale(1.06);
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.72);
+}
+
+/* =========================================
+   SECTION 3: ASEMBIA 2027 · A PRIVATE INVITATION
+   HEADING ABOVE IMAGE + WHITE CTA WITH BLACK TEXT
+========================================= */
+
+.vh-studio-section {
+    --studio-bg-image: none;
+
+    --orange: #FE602F;
+    --blue: #023A94;
+    --deep-blue: #013476;
+    --periwinkle: #a9bcff;
+
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    padding: 54px 0 78px;
+
+    background: transparent;
+    color: #ffffff;
+}
+
+.vh-studio-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image: var(--studio-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.28;
+}
+
+.vh-studio-container {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 55px;
+}
+
+/* Section 3 Heading Placed Above the Image */
+
+.vh-studio-header {
+    margin-bottom: 24px;
+}
+
+.vh-studio-heading {
+    margin: 0;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.8px;
+}
+
+.vh-studio-card {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    min-height: 365px;
+    padding: 54px 60px;
+    border-radius: 6px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    background: rgba(7, 11, 30, 0.55);
+    border: 1px solid rgba(169, 188, 255, 0.22);
+    box-shadow: 0 22px 54px rgba(2, 3, 8, 0.65);
+
+    transition: border-color 0.45s ease, box-shadow 0.45s ease;
+}
+
+.vh-studio-card:hover {
+    border-color: rgba(255, 255, 255, 0.52);
+    box-shadow:
+        0 24px 58px rgba(2, 3, 8, 0.72),
+        0 0 30px rgba(255, 255, 255, 0.14);
+}
+
+.vh-studio-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.vh-studio-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    filter: brightness(0.92) contrast(1.04);
+    transform-origin: center center;
+    will-change: transform;
+
+    animation: vh-studio-fluid-pan 28s ease-in-out infinite;
+}
+
+@keyframes vh-studio-fluid-pan {
+    0% {
+        transform: scale(1.04) translate3d(0%, 0%, 0);
+    }
+    33% {
+        transform: scale(1.09) translate3d(-1.4%, -0.8%, 0);
+    }
+    66% {
+        transform: scale(1.07) translate3d(1.2%, 0.7%, 0);
+    }
+    100% {
+        transform: scale(1.04) translate3d(0%, 0%, 0);
+    }
+}
+
+.vh-studio-fluid-overlay {
+    position: absolute;
+    inset: -20%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.42;
+
+    background:
+        radial-gradient(ellipse at 25% 35%, rgba(2, 58, 148, 0.45) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 65%, rgba(169, 188, 255, 0.25) 0%, transparent 52%),
+        radial-gradient(ellipse at 55% 25%, rgba(254, 96, 47, 0.10) 0%, transparent 45%);
+    background-size: 160% 160%;
+    animation: vh-studio-aura-drift 22s ease-in-out infinite;
+}
+
+@keyframes vh-studio-aura-drift {
+    0% {
+        transform: translate3d(-3%, -2%, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(3%, 2%, 0) scale(1.05);
+    }
+    100% {
+        transform: translate3d(-3%, -2%, 0) scale(1);
+    }
+}
+
+.vh-studio-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            95deg,
+            rgba(2, 3, 8, 0.76) 0%,
+            rgba(7, 11, 30, 0.50) 50%,
+            rgba(7, 11, 30, 0.16) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(2, 3, 8, 0.08) 0%,
+            rgba(2, 3, 8, 0.34) 100%
+        );
+}
+
+.vh-studio-corner {
+    position: absolute;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+}
+
+.vh-studio-card:hover .vh-studio-corner {
+    opacity: 1;
+}
+
+.vh-studio-corner--tr {
+    top: 0;
+    right: 0;
+    width: 240px;
+    height: 180px;
+
+    background: radial-gradient(
+        circle at 100% 0%,
+        rgba(255, 255, 255, 0.28) 0%,
+        rgba(255, 255, 255, 0.10) 38%,
+        transparent 72%
+    );
+}
+
+.vh-studio-corner--tr::before,
+.vh-studio-corner--tr::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.vh-studio-corner--tr::before {
+    width: 190px;
+    height: 2px;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.42) 48%, transparent 100%);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.65), 0 0 24px rgba(255, 255, 255, 0.32);
+}
+
+.vh-studio-corner--tr::after {
+    width: 2px;
+    height: 145px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.42) 48%, transparent 100%);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.65), 0 0 24px rgba(255, 255, 255, 0.32);
+}
+
+.vh-studio-corner--bl {
+    bottom: 0;
+    left: 0;
+    width: 240px;
+    height: 180px;
+
+    background: radial-gradient(
+        circle at 0% 100%,
+        rgba(255, 255, 255, 0.28) 0%,
+        rgba(255, 255, 255, 0.10) 38%,
+        transparent 72%
+    );
+}
+
+.vh-studio-corner--bl::before,
+.vh-studio-corner--bl::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.vh-studio-corner--bl::before {
+    width: 190px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.42) 48%, transparent 100%);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.65), 0 0 24px rgba(255, 255, 255, 0.32);
+}
+
+.vh-studio-corner--bl::after {
+    width: 2px;
+    height: 145px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.42) 48%, transparent 100%);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.65), 0 0 24px rgba(255, 255, 255, 0.32);
+}
+
+.vh-studio-content {
+    position: relative;
+    z-index: 4;
+
+    max-width: 720px;
+    text-align: left;
+}
+
+.vh-studio-subheading {
+    margin: 0;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: clamp(26px, 2.7vw, 38px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.6px;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+}
+
+.vh-studio-description {
+    max-width: 650px;
+    margin: 14px 0 0;
+
+    color: rgba(235, 241, 255, 0.94);
+    font-family: inherit;
+    font-size: clamp(15.5px, 1.25vw, 18px);
+    font-weight: 400;
+    line-height: 1.55;
+    letter-spacing: 0.15px;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* White CTA Button with Black Text */
+.vh-studio-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 26px;
+    padding: 13px 26px;
+    border-radius: 999px;
+
+    background: #ffffff;
+    color: #000000;
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vh-studio-cta:hover {
+    transform: translateY(-2px);
+    background: #f1f5ff;
+    color: #000000;
+    box-shadow: 0 10px 26px rgba(255, 255, 255, 0.32);
+}
+
+.vh-studio-cta-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.vh-studio-cta:hover .vh-studio-cta-arrow {
+    transform: translateX(4px);
+}
+
+/* =========================================
+   SECTION 4: TESTIMONIALS
+========================================= */
+
+.vh-testimonials-section {
+    --orange: #FE602F;
+    --dark-navy: #04133C;
+    --blue: #023A94;
+    --periwinkle: #a9bcff;
+
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    padding: 96px 0 108px;
+    overflow: hidden;
+
+    background: linear-gradient(180deg, #020308 0%, #050a1a 48%, #030714 100%);
+    color: #ffffff;
+}
+
+.vh-testimonials-shape {
+    position: absolute;
+    top: -40px;
+    right: -8%;
+    bottom: -60px;
+    width: 46%;
+    min-width: 460px;
+    z-index: 0;
+    pointer-events: none;
+
+    background: linear-gradient(145deg, #023A94 0%, #012563 58%, #040d28 100%);
+    border-radius: 56% 0 0 42% / 52% 0 0 48%;
+    box-shadow: -24px 0 80px rgba(2, 58, 148, 0.28);
+}
+
+.vh-testimonials-shape::before {
+    content: "";
+    position: absolute;
+    top: 4%;
+    right: 0;
+    width: 72%;
+    height: 62%;
+    border-radius: 65% 0 0 50% / 60% 0 0 45%;
+    background: radial-gradient(
+        circle at 30% 35%,
+        rgba(169, 188, 255, 0.14) 0%,
+        rgba(254, 96, 47, 0.06) 55%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+.vh-testimonials-container {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 55px;
+
+    display: flex;
+    align-items: center;
+    gap: 56px;
+}
+
+.vh-testimonials-intro {
+    flex: 0 0 330px;
+}
+
+.vh-testimonials-heading {
+    margin: 0;
+    color: #ffffff;
+
+    font-size: clamp(32px, 3vw, 44px);
+    font-weight: 700;
+    line-height: 1.14;
+    letter-spacing: -0.9px;
+}
+
+.vh-testimonials-subtext {
+    margin: 16px 0 0;
+    color: rgba(215, 226, 255, 0.84);
+
+    font-size: 16.5px;
+    font-weight: 400;
+    line-height: 1.55;
+}
+
+.vh-testimonials-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 34px;
+}
+
+/* White Arrow Buttons with Black Text */
+.vh-testimonial-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 44px;
+    padding: 0;
+    background: #ffffff;
+    color: #000000;
+    border: 1.5px solid rgba(255, 255, 255, 0.92);
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.vh-testimonial-btn--prev {
+    width: 72px;
+    border-radius: 999px;
+}
+
+.vh-testimonial-btn--next {
+    width: 44px;
+    border-radius: 50%;
+}
+
+.vh-testimonial-btn:hover {
+    background: #f1f5ff;
+    border-color: #ffffff;
+    color: #000000;
+    transform: translateY(-1px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.42);
+}
+
+.vh-testimonial-btn:focus-visible {
+    outline: 2px solid var(--periwinkle);
+    outline-offset: 2px;
+}
+
+.vh-testimonials-carousel {
+    flex: 1;
+    min-width: 0;
+}
+
+.vh-testimonials-viewport {
+    width: 100%;
+    overflow: hidden;
+    padding: 22px 10px 26px;
+    margin: -22px -10px -26px;
+}
+
+.vh-testimonials-track {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-y;
+    will-change: transform;
+}
+
+.vh-testimonials-track.is-dragging {
+    cursor: grabbing;
+}
+
+.vh-testimonial-card {
+    flex: 0 0 calc((100% - 40px) / 2.25);
+    min-width: 310px;
+    display: flex;
+    flex-direction: column;
+}
+
+.vh-testimonial-bubble {
+    position: relative;
+    flex: 1;
+
+    padding: 30px 28px;
+    border-radius: 14px;
+    background: rgba(10, 17, 42, 0.94);
+    border: 1px solid rgba(169, 188, 255, 0.18);
+    box-shadow: 0 18px 42px rgba(2, 3, 8, 0.45);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.vh-testimonial-bubble::after {
+    content: "";
+    position: absolute;
+    left: 34px;
+    bottom: -9px;
+    width: 18px;
+    height: 18px;
+    background: #0a112a;
+    border-right: 1px solid rgba(169, 188, 255, 0.18);
+    border-bottom: 1px solid rgba(169, 188, 255, 0.18);
+    transform: rotate(45deg);
+    transition: border-color 0.35s ease, background 0.35s ease;
+}
+
+.vh-testimonial-card:hover .vh-testimonial-bubble {
+    transform: translateY(-5px);
+    background: rgba(14, 24, 58, 0.98);
+    border-color: rgba(255, 255, 255, 0.88);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.38),
+        0 22px 52px rgba(0, 0, 0, 0.62),
+        0 0 32px rgba(255, 255, 255, 0.24);
+}
+
+.vh-testimonial-card:hover .vh-testimonial-bubble::after {
+    background: #0e183a;
+    border-right-color: rgba(255, 255, 255, 0.88);
+    border-bottom-color: rgba(255, 255, 255, 0.88);
+}
+
+.vh-testimonial-quote {
+    margin: 0;
+    color: rgba(235, 241, 255, 0.92);
+
+    font-size: 15.5px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.vh-testimonial-author {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 12px;
+
+    margin-top: 22px;
+    margin-left: 14px;
+    padding: 6px 18px 6px 6px;
+    border-radius: 999px;
+
+    background: rgba(10, 17, 42, 0.92);
+    border: 1px solid rgba(169, 188, 255, 0.18);
+    box-shadow: 0 6px 18px rgba(2, 3, 8, 0.38);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.vh-testimonial-card:hover .vh-testimonial-author {
+    border-color: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.16);
+}
+
+.vh-testimonial-avatar {
+    position: relative;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(2, 58, 148, 0.35);
+    color: var(--periwinkle);
+    border: 1px solid rgba(169, 188, 255, 0.28);
+}
+
+.vh-testimonial-avatar-placeholder {
+    width: 20px;
+    height: 20px;
+    opacity: 0.85;
+}
+
+.vh-testimonial-avatar-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.vh-testimonial-avatar-img[src=""] {
+    display: none;
+}
+
+.vh-testimonial-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.vh-testimonial-name {
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.vh-testimonial-role {
+    margin-top: 2px;
+    color: var(--periwinkle);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    opacity: 0.88;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.vh-footer {
+    --orange: #FE602F;
+    --blue: #023A94;
+    --periwinkle: #a9bcff;
+
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    padding: 68px 0 34px;
+
+    background: linear-gradient(180deg, #030714 0%, #020308 100%);
+    color: #ffffff;
+}
+
+.vh-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(169, 188, 255, 0.22) 30%,
+        rgba(254, 96, 47, 0.35) 55%,
+        rgba(169, 188, 255, 0.22) 80%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+.vh-footer-container {
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 55px;
+}
+
+.vh-footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 0.9fr 0.9fr 1.2fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(169, 188, 255, 0.14);
+}
+
+.vh-footer-logo {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.26);
+    text-decoration: none;
+}
+
+.vh-footer-logo img {
+    display: block;
+    height: 26px;
+    width: auto;
+    object-fit: contain;
+}
+
+.vh-footer-about {
+    margin: 18px 0 0;
+    max-width: 380px;
+    color: rgba(215, 226, 255, 0.78);
+    font-size: 14.5px;
+    line-height: 1.6;
+}
+
+.vh-footer-partner {
+    margin-top: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(2, 58, 148, 0.22);
+    border: 1px solid rgba(169, 188, 255, 0.2);
+    color: var(--periwinkle);
+    font-size: 12.5px;
+    font-weight: 500;
+}
+
+.vh-footer-col-title {
+    margin: 0 0 16px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 650;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.vh-footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.vh-footer-links a {
+    color: rgba(215, 226, 255, 0.78);
+    text-decoration: none;
+    font-size: 14.5px;
+    transition: color 0.25s ease, transform 0.25s ease;
+    display: inline-block;
+}
+
+.vh-footer-links a:hover {
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+.vh-footer-cta-box {
+    padding: 22px 24px;
+    border-radius: 14px;
+    background: rgba(7, 13, 34, 0.78);
+    border: 1px solid rgba(169, 188, 255, 0.18);
+}
+
+.vh-footer-cta-text {
+    margin: 0;
+    color: rgba(225, 232, 255, 0.85);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* White CTA Button with Black Text */
+.vh-footer-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.18);
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.vh-footer-cta-btn:hover {
+    transform: translateY(-1px);
+    background: #f1f5ff;
+    color: #000000;
+    box-shadow: 0 6px 22px rgba(255, 255, 255, 0.34);
+}
+
+.vh-footer-email {
+    display: block;
+    margin-top: 14px;
+    color: var(--periwinkle);
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: color 0.25s ease;
+}
+
+.vh-footer-email:hover {
+    color: #ffffff;
+}
+
+.vh-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 26px;
+}
+
+.vh-footer-copy {
+    color: rgba(203, 213, 225, 0.65);
+    font-size: 13px;
+}
+
+.vh-footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    list-style: none;
+}
+
+.vh-footer-legal a {
+    color: rgba(203, 213, 225, 0.7);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.25s ease;
+}
+
+.vh-footer-legal a:hover {
+    color: #ffffff;
+}
+
+/* =========================================
+   LAPTOP (<= 1100px)
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .vh-nav {
+        padding: 16px 35px 0;
+    }
+
+    .vh-container {
+        padding: 16px 35px 24px;
+    }
+
+    .vh-copy {
+        width: 57%;
+    }
+
+    .vh-copy h1 {
+        font-size: 46px;
+    }
+
+    .vh-description {
+        font-size: 17px;
+    }
+
+    .collaboration-mark {
+        width: 40%;
+        right: 3%;
+        gap: 12px;
+    }
+
+    .collaboration-mark__card {
+        height: 68px;
+        padding: 12px 14px;
+    }
+
+    .collaboration-mark__logo {
+        height: 36px;
+    }
+
+    .vh-industry-container,
+    .vh-studio-container,
+    .vh-testimonials-container,
+    .vh-footer-container {
+        padding: 0 35px;
+    }
+
+    .vh-industry-grid {
+        gap: 32px;
+    }
+
+    .vh-industry-card {
+        height: 205px;
+        padding: 16px 18px;
+    }
+
+    .vh-studio-section {
+        padding: 46px 0 64px;
+    }
+
+    .vh-studio-card {
+        min-height: 320px;
+        padding: 42px 44px;
+    }
+
+    .vh-testimonials-section {
+        padding: 80px 0 88px;
+    }
+
+    .vh-testimonials-container {
+        gap: 38px;
+    }
+
+    .vh-testimonials-intro {
+        flex: 0 0 280px;
+    }
+
+    .vh-testimonial-card {
+        flex: 0 0 calc((100% - 28px) / 1.65);
+        min-width: 280px;
+    }
+
+    .vh-footer-top {
+        grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+        gap: 30px;
+    }
+}
+
+/* =========================================
+   TABLET (<= 768px)
+========================================= */
+
+@media (max-width: 768px) {
+
+    .vh-hero {
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        padding-bottom: 30px;
+    }
+
+    .vh-nav {
+        padding: 16px 25px 18px;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .vh-nav-right {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .vh-nav-links {
+        gap: 14px;
+    }
+
+    .vh-container {
+        height: auto;
+        padding: 10px 25px 0;
+    }
+
+    .vh-copy {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .vh-label {
+        font-size: 19px;
+        margin-bottom: 10px;
+    }
+
+    .vh-copy h1 {
+        font-size: clamp(36px, 6.5vw, 46px);
+        line-height: 1.1;
+    }
+
+    .vh-description {
+        font-size: 16.5px;
+        line-height: 1.5;
+        margin-top: 14px;
+    }
+
+    .collaboration-mark {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        transform: none;
+
+        width: min(460px, calc(100% - 50px));
+        margin: 26px auto 0;
+        gap: 12px;
+    }
+
+    .collaboration-mark__card {
+        height: 64px;
+        padding: 10px 14px;
+    }
+
+    .collaboration-mark__logo {
+        height: 34px;
+    }
+
+    .vh-industry-section {
+        padding: 40px 0 48px;
+    }
+
+    .vh-industry-container,
+    .vh-studio-container,
+    .vh-testimonials-container,
+    .vh-footer-container {
+        padding: 0 25px;
+    }
+
+    .vh-industry-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .vh-industry-card {
+        height: 205px;
+    }
+
+    .vh-studio-section {
+        padding: 40px 0 56px;
+    }
+
+    .vh-studio-card {
+        min-height: 295px;
+        padding: 34px 28px;
+    }
+
+    .vh-testimonials-section {
+        padding: 64px 0 74px;
+    }
+
+    .vh-testimonials-shape {
+        top: auto;
+        right: -18%;
+        bottom: -80px;
+        width: 78%;
+        min-width: 0;
+        height: 56%;
+    }
+
+    .vh-testimonials-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 32px;
+    }
+
+    .vh-testimonials-intro {
+        flex: none;
+    }
+
+    .vh-testimonials-controls {
+        margin-top: 22px;
+    }
+
+    .vh-testimonial-card {
+        flex: 0 0 calc((100% - 28px) / 1.35);
+        min-width: 260px;
+    }
+
+    .vh-footer {
+        padding: 54px 0 30px;
+    }
+
+    .vh-footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        padding-bottom: 36px;
+    }
+}
+
+/* =========================================
+   MOBILE (<= 600px)
+========================================= */
+
+@media (max-width: 600px) {
+
+    .vh-nav {
+        padding: 14px 20px 14px;
+    }
+
+    .vh-nav-logo img {
+        height: 22px;
+    }
+
+    .vh-nav-right {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .vh-nav-links {
+        gap: 12px;
+    }
+
+    .vh-nav-link {
+        font-size: 13px;
+    }
+
+    .vh-nav-cta {
+        padding: 8px 14px;
+        font-size: 12.5px;
+    }
+
+    .vh-container {
+        padding: 8px 20px 0;
+    }
+
+    .vh-label {
+        font-size: 18px;
+    }
+
+    .vh-copy h1 {
+        font-size: clamp(32px, 8.6vw, 42px);
+        line-height: 1.12;
+        letter-spacing: -.8px;
+    }
+
+    .vh-description {
+        font-size: 15.5px;
+        line-height: 1.55;
+        margin-top: 12px;
+    }
+
+    .collaboration-mark {
+        width: calc(100% - 40px);
+        margin-top: 22px;
+        gap: 10px;
+    }
+
+    .collaboration-mark__card {
+        height: 58px;
+        padding: 10px 12px;
+        border-radius: 12px;
+    }
+
+    .collaboration-mark__logo {
+        height: 28px;
+    }
+
+    .collaboration-mark__divider {
+        height: 28px;
+    }
+
+    .vh-industry-section {
+        padding: 34px 0 42px;
+    }
+
+    .vh-industry-container,
+    .vh-studio-container,
+    .vh-testimonials-container,
+    .vh-footer-container {
+        padding: 0 20px;
+    }
+
+    .vh-industry-header {
+        margin-bottom: 20px;
+    }
+
+    .vh-industry-grid {
+        gap: 20px;
+    }
+
+    .vh-industry-card {
+        height: 195px;
+        padding: 16px 18px;
+    }
+
+    .vh-studio-section {
+        padding: 34px 0 48px;
+    }
+
+    .vh-studio-header {
+        margin-bottom: 18px;
+    }
+
+    .vh-studio-card {
+        min-height: 270px;
+        padding: 28px 22px;
+    }
+
+    .vh-studio-cta {
+        margin-top: 20px;
+        padding: 11px 22px;
+        font-size: 14px;
+    }
+
+    .vh-testimonials-section {
+        padding: 54px 0 64px;
+    }
+
+    .vh-testimonials-shape {
+        right: -25%;
+        bottom: -60px;
+        width: 92%;
+        height: 52%;
+    }
+
+    .vh-testimonial-card {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+
+    .vh-testimonial-bubble {
+        padding: 26px 22px;
+    }
+
+    .vh-footer {
+        padding: 46px 0 28px;
+    }
+
+    .vh-footer-top {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .vh-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .vh-nav,
+    .vh-container,
+    .vh-industry-container,
+    .vh-studio-container,
+    .vh-testimonials-container,
+    .vh-footer-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .vh-copy h1 {
+        font-size: 31px;
+    }
+
+    .vh-description {
+        font-size: 14.5px;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .collaboration-mark__card {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .collaboration-mark__divider {
+        animation: none;
+        transform: none;
+    }
+
+    .vh-industry-card,
+    .vh-industry-card-bg,
+    .vh-industry-card::before,
+    .vh-industry-card::after,
+    .vh-industry-card-scrim,
+    .vh-industry-arrow,
+    .vh-industry-cta,
+    .vh-studio-card,
+    .vh-studio-img,
+    .vh-studio-fluid-overlay,
+    .vh-studio-corner,
+    .vh-studio-cta,
+    .vh-studio-cta-arrow,
+    .vh-testimonial-bubble,
+    .vh-testimonial-bubble::after,
+    .vh-testimonial-author,
+    .vh-testimonial-btn,
+    .vh-footer-links a,
+    .vh-footer-cta-btn {
+        transition: none;
+        animation: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================================
+     SECTION 1: HERO
+========================================= -->
+<section class="vh-hero" id="home">
+
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-overlay"></div>
+
+    <!-- TOP NAVIGATION -->
+    <header class="vh-nav">
+        <a href="#home" class="vh-nav-logo" aria-label="Value Health Home">
+            <img src="vh_logo-rmnmjan3x5vkno0d73f136whdky4375otns9avmt7a.png" alt="Value Health">
+        </a>
+
+        <div class="vh-nav-right">
+            <ul class="vh-nav-links">
+                <li><a href="#pharma" class="vh-nav-link">Pharma & Biotech</a></li>
+                <li><a href="#hubs" class="vh-nav-link">HUB Providers</a></li>
+                <li><a href="#specialty-pharmacy" class="vh-nav-link">Specialty Pharmacy</a></li>
+            </ul>
+            <a href="#book-meeting" class="vh-nav-cta">Book Meeting</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="vh-container">
+        <div class="vh-copy">
+            <div class="vh-label">
+                ASEMBIA AXS27 | APRIL 25-29, 2027 | 7 AM-7 PM
+            </div>
+
+            <h1>
+                Built for better Pharma
+                <span>patient access.</span>
+            </h1>
+
+            <p class="vh-description">
+                Value Health connects pharmaceutical companies,
+                HUB services, and specialty pharmacies through
+                intelligent technology and connected patient
+                access workflows.
+            </p>
+        </div>
+    </div>
+
+    <!-- COLLABORATION LOGOS (WHITE CARDS WITH SOFT WHITE GLOW) -->
+    <div class="collaboration-mark" aria-label="Value Health in collaboration with AXS27">
+        <div class="collaboration-mark__card collaboration-mark__card--value">
+            <img
+                class="collaboration-mark__logo collaboration-mark__value"
+                src="vh_logo-rmnmjan3x5vkno0d73f136whdky4375otns9avmt7a.png"
+                alt="Value Health"
+            >
+        </div>
+
+        <span class="collaboration-mark__divider" aria-hidden="true"></span>
+
+        <div class="collaboration-mark__card collaboration-mark__card--axs">
+            <img
+                class="collaboration-mark__logo collaboration-mark__axs"
+                src="Asembia_Logo-removebg-preview.png"
+                alt="AXS27"
+            >
+        </div>
+    </div>
+
+</section>
+
+<!-- =========================================
+     UNIFIED FLOW WRAPPER FOR SECTIONS 2 & 3
+========================================= -->
+<div class="vh-flow-wrapper">
+
+    <!-- SHARED SLOW FLUID AURORA BACKGROUND (SECTIONS 2 & 3) -->
+    <canvas id="flow-canvas" aria-hidden="true"></canvas>
+
+    <!-- =========================================
+         SECTION 2: INDUSTRY SELECTION
+    ========================================= -->
+    <section class="vh-industry-section" id="industries">
+
+        <!-- BOTTOM DIAGONAL CROSS LINES -->
+        <div class="vh-industry-lines" aria-hidden="true"></div>
+
+        <div class="vh-industry-container">
+
+            <!-- HEADING -->
+            <header class="vh-industry-header">
+                <h2 class="vh-industry-heading">Which industry are you from?</h2>
+                <p class="vh-industry-subtext">
+                    Choose your industry to get the best experience.
+                </p>
+            </header>
+
+            <!-- THREE RECTANGLE INDUSTRY CARDS -->
+            <div class="vh-industry-grid">
+
+                <!-- 1. PHARMA -->
+                <a href="#pharma" class="vh-industry-card vh-industry-card--pharma" data-industry="pharma">
+                    <div class="vh-industry-card-bg" aria-hidden="true"></div>
+                    <div class="vh-industry-card-scrim" aria-hidden="true"></div>
+
+                    <!-- <span class="vh-industry-tag">Industry 01 &nbsp;|&nbsp; Manufacturers</span> -->
+
+                    <div class="vh-industry-card-bottom">
+                        <h3 class="vh-industry-card-title">Pharma</h3>
+                        <p class="vh-industry-card-desc">
+                            Accelerate therapy launches, visibility, and patient adherence workflows.
+                        </p>
+                        <div class="vh-industry-card-footer">
+                            <span class="vh-industry-cta">Explore Pharma</span>
+                            <span class="vh-industry-arrow" aria-hidden="true">&#8594;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 2. HUB -->
+                <a href="#hubs" class="vh-industry-card vh-industry-card--hub" data-industry="hub">
+                    <div class="vh-industry-card-bg" aria-hidden="true"></div>
+                    <div class="vh-industry-card-scrim" aria-hidden="true"></div>
+
+                  <!-- <span class="vh-industry-tag">Industry 02 &nbsp;|&nbsp; Patient Support</span>-->
+
+                    <div class="vh-industry-card-bottom">
+                        <h3 class="vh-industry-card-title">HUB</h3>
+                        <p class="vh-industry-card-desc">
+                            Streamline benefit verification, prior authorizations, and case coordination.
+                        </p>
+                        <div class="vh-industry-card-footer">
+                            <span class="vh-industry-cta">Explore HUB</span>
+                            <span class="vh-industry-arrow" aria-hidden="true">&#8594;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 3. SPECIALTY PHARMACY -->
+                <a href="#specialty-pharmacy" class="vh-industry-card vh-industry-card--specialty" data-industry="specialty-pharmacy">
+                    <div class="vh-industry-card-bg" aria-hidden="true"></div>
+                    <div class="vh-industry-card-scrim" aria-hidden="true"></div>
+
+                    <!-- <span class="vh-industry-tag">Industry 03 &nbsp;|&nbsp; Dispensing &amp; Care</span> -->
+
+                    <div class="vh-industry-card-bottom">
+                        <h3 class="vh-industry-card-title">Specialty Pharmacy</h3>
+                        <p class="vh-industry-card-desc">
+                            Connect dispense data, fulfillment speed, and real-time patient updates.
+                        </p>
+                        <div class="vh-industry-card-footer">
+                            <span class="vh-industry-cta">Explore Specialty Pharmacy</span>
+                            <span class="vh-industry-arrow" aria-hidden="true">&#8594;</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================
+         SECTION 3: ASEMBIA 2027 · A PRIVATE INVITATION
+    ========================================= -->
+    <section class="vh-studio-section" id="book-meeting">
+        <div class="vh-studio-container">
+
+            <!-- SECTION 3 HEADING ABOVE THE IMAGE -->
+            <header class="vh-studio-header">
+                <h2 class="vh-studio-heading">Asembia 2027 &middot; A private invitation</h2>
+            </header>
+
+            <div class="vh-studio-card">
+
+                <!-- REPLACE SECTION 3 IMAGE src="" BELOW WITH YOUR OWN IMAGE -->
+                <div class="vh-studio-media" aria-hidden="true">
+                    <img
+                        id="studio-feature-image"
+                        class="vh-studio-img"
+                        src="Wynn Resorts.png"
+                        alt="Value Health Studio Room at Asembia 2027"
+                    >
+                </div>
+
+                <div class="vh-studio-fluid-overlay" aria-hidden="true"></div>
+                <div class="vh-studio-overlay" aria-hidden="true"></div>
+
+                <div class="vh-studio-corner vh-studio-corner--tr" aria-hidden="true"></div>
+                <div class="vh-studio-corner vh-studio-corner--bl" aria-hidden="true"></div>
+
+                <!-- LAYER 1: TEXT ON IMAGE -->
+                <div class="vh-studio-content">
+                    <h3 class="vh-studio-subheading">
+                        Meet Value Health in Our Studio Room.
+                    </h3>
+
+                    <p class="vh-studio-description">
+                        Step away from the conference floor for a focused conversation
+                        about patient access, patient support operations and smarter workflows.
+                    </p>
+
+                    <a href="#schedule-studio-meeting" class="vh-studio-cta">
+                        <span>Book Your Studio Meeting</span>
+                        <span class="vh-studio-cta-arrow" aria-hidden="true">&#8594;</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- =========================================
+     SECTION 4: TESTIMONIALS (DARK THEME + AUTO-SCROLL)
+========================================= -->
+<section class="vh-testimonials-section" id="testimonials" aria-labelledby="vh-testimonials-title">
+
+    <!-- Abstract Dark-Blue Curved Shape Behind Cards -->
+    <div class="vh-testimonials-shape" aria-hidden="true"></div>
+
+    <div class="vh-testimonials-container">
+
+        <!-- LEFT SIDE: HEADING & NAVIGATION ARROWS -->
+        <div class="vh-testimonials-intro">
+            <h2 class="vh-testimonials-heading" id="vh-testimonials-title">
+                Testimonials
+            </h2>
+
+            <p class="vh-testimonials-subtext">
+                Real experiences. Meaningful partnerships. Better patient access.
+            </p>
+
+            <div class="vh-testimonials-controls">
+                <button
+                    type="button"
+                    class="vh-testimonial-btn vh-testimonial-btn--prev"
+                    id="vh-testimonial-prev"
+                    aria-label="Previous testimonial"
+                >
+                    &#8592;
+                </button>
+                <button
+                    type="button"
+                    class="vh-testimonial-btn vh-testimonial-btn--next"
+                    id="vh-testimonial-next"
+                    aria-label="Next testimonial"
+                >
+                    &#8594;
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: AUTO-SCROLLING CAROUSEL -->
+        <div class="vh-testimonials-carousel">
+            <div class="vh-testimonials-viewport" id="vh-testimonials-viewport">
+                <div class="vh-testimonials-track" id="vh-testimonials-track">
+
+                    <!-- TESTIMONIAL 1 -->
+                    <article class="vh-testimonial-card">
+                        <div class="vh-testimonial-bubble">
+                            <p class="vh-testimonial-quote">
+                                &ldquo;VHS team helped us streamline intake and reimbursement workflows while improving operational visibility across our programs.&rdquo;
+                            </p>
+                        </div>
+                        <div class="vh-testimonial-author">
+                            <div class="vh-testimonial-avatar">
+                                <svg class="vh-testimonial-avatar-placeholder" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                                </svg>
+                                <img class="vh-testimonial-avatar-img" src="" alt="CEO, Leading Hub Services">
+                            </div>
+                            <div class="vh-testimonial-meta">
+                                <span class="vh-testimonial-name">CEO</span>
+                                <span class="vh-testimonial-role">Leading Hub Services</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- TESTIMONIAL 2 -->
+                    <article class="vh-testimonial-card">
+                        <div class="vh-testimonial-bubble">
+                            <p class="vh-testimonial-quote">
+                                &ldquo;By reducing repetitive manual checks and improving workflow visibility, Value Health helped our teams focus more on complex patient cases.&rdquo;
+                            </p>
+                        </div>
+                        <div class="vh-testimonial-author">
+                            <div class="vh-testimonial-avatar">
+                                <svg class="vh-testimonial-avatar-placeholder" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                                </svg>
+                                <img class="vh-testimonial-avatar-img" src="" alt="Senior Director, Patient Services, Specialty Pharmacy">
+                            </div>
+                            <div class="vh-testimonial-meta">
+                                <span class="vh-testimonial-name">Senior Director, Patient Services</span>
+                                <span class="vh-testimonial-role">Specialty Pharmacy</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- TESTIMONIAL 3 -->
+                    <article class="vh-testimonial-card">
+                        <div class="vh-testimonial-bubble">
+                            <p class="vh-testimonial-quote">
+                                &ldquo;Value Health helped our provider teams reduce documentation and workflow delays, allowing staff to focus more on patient care and operational efficiency.&rdquo;
+                            </p>
+                        </div>
+                        <div class="vh-testimonial-author">
+                            <div class="vh-testimonial-avatar">
+                                <svg class="vh-testimonial-avatar-placeholder" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                                </svg>
+                                <img class="vh-testimonial-avatar-img" src="" alt="VP, Clinical Operations, Multi-Specialty Provider">
+                            </div>
+                            <div class="vh-testimonial-meta">
+                                <span class="vh-testimonial-name">VP, Clinical Operations</span>
+                                <span class="vh-testimonial-role">Multi-Specialty Provider</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- TESTIMONIAL 4 -->
+                    <article class="vh-testimonial-card">
+                        <div class="vh-testimonial-bubble">
+                            <p class="vh-testimonial-quote">
+                                &ldquo;Neil &amp; his team helped us reduce manual follow-ups and improve visibility across patient access workflows, especially in benefit verification and intake operations.&rdquo;
+                            </p>
+                        </div>
+                        <div class="vh-testimonial-author">
+                            <div class="vh-testimonial-avatar">
+                                <svg class="vh-testimonial-avatar-placeholder" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                                </svg>
+                                <img class="vh-testimonial-avatar-img" src="" alt="Director, Market Access, Leading Pharma (Oncology)">
+                            </div>
+                            <div class="vh-testimonial-meta">
+                                <span class="vh-testimonial-name">Director, Market Access</span>
+                                <span class="vh-testimonial-role">Leading Pharma (Oncology)</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- TESTIMONIAL 5 -->
+                    <article class="vh-testimonial-card">
+                        <div class="vh-testimonial-bubble">
+                            <p class="vh-testimonial-quote">
+                                &ldquo;Value Health&rsquo;s AI + Human-in-the-Loop approach helped our teams manage growing patient volume with better speed, consistency, and operational efficiency.&rdquo;
+                            </p>
+                        </div>
+                        <div class="vh-testimonial-author">
+                            <div class="vh-testimonial-avatar">
+                                <svg class="vh-testimonial-avatar-placeholder" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                                </svg>
+                                <img class="vh-testimonial-avatar-img" src="" alt="VP, Patient Access, NY-Based Biotech Company">
+                            </div>
+                            <div class="vh-testimonial-meta">
+                                <span class="vh-testimonial-name">VP, Patient Access</span>
+                                <span class="vh-testimonial-role">NY-Based Biotech Company</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+<footer class="vh-footer">
+    <div class="vh-footer-container">
+
+        <div class="vh-footer-top">
+            <!-- Brand Column -->
+            <div>
+                <a href="#home" class="vh-footer-logo" aria-label="Value Health Home">
+                    <img src="vh_logo-rmnmjan3x5vkno0d73f136whdky4375otns9avmt7a.png" alt="Value Health">
+                </a>
+                <p class="vh-footer-about">
+                    Connecting pharmaceutical companies, HUB services, and specialty
+                    pharmacies through intelligent technology and connected patient
+                    access workflows.
+                </p>
+                <span class="vh-footer-partner">In collaboration with Asembia AXS27</span>
+            </div>
+
+            <!-- Industries Column -->
+            <div>
+                <h4 class="vh-footer-col-title">Industries</h4>
+                <ul class="vh-footer-links">
+                    <li><a href="#pharma">Pharma</a></li>
+                    <li><a href="#hubs">HUB Services</a></li>
+                    <li><a href="#specialty-pharmacy">Specialty Pharmacy</a></li>
+                    <li><a href="#industries">Select Your Industry</a></li>
+                </ul>
+            </div>
+
+            <!-- Explore Column -->
+            <div>
+                <h4 class="vh-footer-col-title">Explore</h4>
+                <ul class="vh-footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#book-meeting">Asembia 2027 Studio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </div>
+
+            <!-- Studio Meeting CTA Column -->
+            <div class="vh-footer-cta-box">
+                <h4 class="vh-footer-col-title">Asembia 2027</h4>
+                <p class="vh-footer-cta-text">
+                    Reserve a private session in the Value Health Studio Room.
+                </p>
+                <a href="#book-meeting" class="vh-footer-cta-btn">
+                    Book Meeting &#8594;
+                </a>
+                <a href="mailto:valuehealthai@gmail.com" class="vh-footer-email">
+                    valuehealthai@gmail.com
+                </a>
+            </div>
+        </div>
+
+        <div class="vh-footer-bottom">
+            <p class="vh-footer-copy">
+                &copy; 2027 Value Health. All rights reserved.
+            </p>
+            <ul class="vh-footer-legal">
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms of Use</a></li>
+                <li><a href="#accessibility">Accessibility</a></li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+
+<script>
+/* =========================================
+   SECTION 1: HERO WEBGL PARTICLE SILK
+========================================= */
+(() => {
+    "use strict";
+
+    const hero = document.getElementById("home");
+    const canvas = document.getElementById("hero-canvas");
+    if (!hero || !canvas) return;
+
+    const gl = canvas.getContext("webgl", {
+        alpha: true,
+        antialias: false,
+        powerPreference: "high-performance"
+    });
+
+    if (!gl) {
+        console.error("WebGL is not supported.");
+        return;
+    }
+
+    const vertexShaderSource = `
+        precision highp float;
+
+        attribute vec3 aUvLayer;
+
+        uniform float uTime;
+        uniform float uAspect;
+        uniform float uPointScale;
+        uniform vec2 uMouse;
+
+        varying float vIntensity;
+        varying float vMix;
+
+        vec3 mod289(vec3 x) {
+            return x - floor(x * (1.0 / 289.0)) * 289.0;
+        }
+
+        vec4 mod289(vec4 x) {
+            return x - floor(x * (1.0 / 289.0)) * 289.0;
+        }
+
+        vec4 permute(vec4 x) {
+            return mod289(((x * 34.0) + 1.0) * x);
+        }
+
+        vec4 taylorInvSqrt(vec4 r) {
+            return 1.79284291400159 - 0.85373472095314 * r;
+        }
+
+        float snoise(vec3 v) {
+            const vec2 C = vec2(1.0 / 6.0, 1.0 / 3.0);
+            const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+
+            vec3 i = floor(v + dot(v, C.yyy));
+            vec3 x0 = v - i + dot(i, C.xxx);
+
+            vec3 g = step(x0.yzx, x0.xyz);
+            vec3 l = 1.0 - g;
+
+            vec3 i1 = min(g.xyz, l.zxy);
+            vec3 i2 = max(g.xyz, l.zxy);
+
+            vec3 x1 = x0 - i1 + C.xxx;
+            vec3 x2 = x0 - i2 + C.yyy;
+            vec3 x3 = x0 - D.yyy;
+
+            i = mod289(i);
+
+            vec4 p = permute(
+                permute(
+                    permute(i.z + vec4(0.0, i1.z, i2.z, 1.0))
+                    + i.y + vec4(0.0, i1.y, i2.y, 1.0)
+                )
+                + i.x + vec4(0.0, i1.x, i2.x, 1.0)
+            );
+
+            float n_ = 0.142857142857;
+            vec3 ns = n_ * D.wyz - D.xzx;
+
+            vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+            vec4 x_ = floor(j * ns.z);
+            vec4 y_ = floor(j - 7.0 * x_);
+
+            vec4 x = x_ * ns.x + ns.yyyy;
+            vec4 y = y_ * ns.x + ns.yyyy;
+            vec4 h = 1.0 - abs(x) - abs(y);
+
+            vec4 b0 = vec4(x.xy, y.xy);
+            vec4 b1 = vec4(x.zw, y.zw);
+
+            vec4 s0 = floor(b0) * 2.0 + 1.0;
+            vec4 s1 = floor(b1) * 2.0 + 1.0;
+            vec4 sh = -step(h, vec4(0.0));
+
+            vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+            vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+
+            vec3 p0 = vec3(a0.xy, h.x);
+            vec3 p1 = vec3(a0.zw, h.y);
+            vec3 p2 = vec3(a1.xy, h.z);
+            vec3 p3 = vec3(a1.zw, h.w);
+
+            vec4 norm = taylorInvSqrt(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+            p0 *= norm.x;
+            p1 *= norm.y;
+            p2 *= norm.z;
+            p3 *= norm.w;
+
+            vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
+            m *= m;
+
+            return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
+        }
+
+        vec3 computeDisplacement(vec3 p, float t, float layerOffset) {
+            vec3 q = p * vec3(1.05, 1.35, 1.0) + vec3(0.0, 0.0, layerOffset * 1.7);
+
+            float n1 = snoise(q + vec3(t * 0.14, -t * 0.09, t * 0.07));
+            float n2 = snoise(q * 1.85 + vec3(-t * 0.11, t * 0.12, 4.2));
+            float n3 = snoise(q * 3.1 - vec3(t * 0.08, t * 0.06, 9.7));
+
+            float angle = n1 * 2.6 + n2 * 1.1;
+
+            return vec3(
+                cos(angle) * 0.34 + n2 * 0.18,
+                sin(angle) * 0.32 + n3 * 0.10,
+                n1 * 0.45 + n2 * 0.25
+            );
+        }
+
+        void main() {
+            float t = uTime * 0.55;
+            float layer = aUvLayer.z;
+
+            vec3 basePos = vec3(
+                aUvLayer.x * 1.48 * max(uAspect, 1.0),
+                aUvLayer.y * 1.25,
+                (layer - 1.0) * 0.32
+            );
+
+            vec2 mouseWorld = vec2(uMouse.x * uAspect, uMouse.y);
+            float mouseDist = length(basePos.xy - mouseWorld);
+            float mousePull = exp(-mouseDist * 1.4) * 0.18;
+
+            vec3 disp = computeDisplacement(basePos * 0.72, t, layer);
+            vec3 pos = basePos + disp;
+
+            vec2 mouseDirection = basePos.xy - mouseWorld;
+            float directionLength = length(mouseDirection);
+
+            if (directionLength > 0.0001) {
+                mouseDirection /= directionLength;
+            } else {
+                mouseDirection = vec2(0.0);
+            }
+
+            pos.xy += mouseDirection * mousePull;
+            pos.z += mousePull * 0.5;
+
+            float eps = 0.04;
+            vec3 dispDx = computeDisplacement((basePos + vec3(eps, 0.0, 0.0)) * 0.72, t, layer);
+            vec3 dispDy = computeDisplacement((basePos + vec3(0.0, eps, 0.0)) * 0.72, t, layer);
+
+            float fold = length(dispDx - disp) + length(dispDy - disp);
+            float zCam = 2.25 - pos.z;
+
+            vec2 projected = vec2(pos.x / (zCam * uAspect), pos.y / zCam) * 1.65;
+
+            float fadeY = 1.0 - smoothstep(0.78, 1.28, abs(projected.y));
+            float fadeX = 1.0 - smoothstep(0.85, 1.35, abs(projected.x));
+            float edgeFade = fadeX * fadeY;
+
+            vMix = clamp(fold * 4.8 + (pos.z + 0.5) * 0.35, 0.0, 1.0);
+            vIntensity = (0.14 + vMix * 0.52) * edgeFade;
+
+            gl_Position = vec4(projected, 0.0, 1.0);
+            gl_PointSize = clamp((1.55 + vMix * 1.25) * uPointScale / zCam, 1.0, 4.0);
+        }
+    `;
+
+    const fragmentShaderSource = `
+        precision mediump float;
+
+        varying float vIntensity;
+        varying float vMix;
+
+        void main() {
+            vec2 coord = gl_PointCoord - vec2(0.5);
+            float dist = length(coord);
+            if (dist > 0.5) discard;
+
+            float alpha = smoothstep(0.5, 0.05, dist) * vIntensity;
+
+            vec3 deepBlue = vec3(0.20, 0.34, 0.95);
+            vec3 softLavender = vec3(0.55, 0.68, 1.0);
+            vec3 icyWhite = vec3(0.95, 0.97, 1.0);
+
+            vec3 color = mix(deepBlue, softLavender, smoothstep(0.0, 0.6, vMix));
+            color = mix(color, icyWhite, smoothstep(0.52, 1.0, vMix));
+
+            gl_FragColor = vec4(color, alpha);
+        }
+    `;
+
+    function createShader(type, source) {
+        const shader = gl.createShader(type);
+        if (!shader) return null;
+
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+            console.error("SHADER ERROR:", gl.getShaderInfoLog(shader));
+            gl.deleteShader(shader);
+            return null;
+        }
+        return shader;
+    }
+
+    const vertexShader = createShader(gl.VERTEX_SHADER, vertexShaderSource);
+    const fragmentShader = createShader(gl.FRAGMENT_SHADER, fragmentShaderSource);
+    if (!vertexShader || !fragmentShader) return;
+
+    const program = gl.createProgram();
+    if (!program) return;
+
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragmentShader);
+    gl.linkProgram(program);
+
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        console.error("PROGRAM ERROR:", gl.getProgramInfoLog(program));
+        return;
+    }
+
+    gl.useProgram(program);
+
+    const layers = 3;
+    const cols = 200;
+    const rows = 120;
+    const totalParticles = layers * cols * rows;
+    const data = new Float32Array(totalParticles * 3);
+
+    let idx = 0;
+    for (let l = 0; l < layers; l++) {
+        for (let y = 0; y < rows; y++) {
+            for (let x = 0; x < cols; x++) {
+                const jx = (Math.random() - 0.5) * (2 / cols);
+                const jy = (Math.random() - 0.5) * (2 / rows);
+
+                data[idx++] = (x / (cols - 1)) * 2 - 1 + jx;
+                data[idx++] = (y / (rows - 1)) * 2 - 1 + jy;
+                data[idx++] = l;
+            }
+        }
+    }
+
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
+
+    const aUvLayer = gl.getAttribLocation(program, "aUvLayer");
+    if (aUvLayer < 0) return;
+
+    gl.enableVertexAttribArray(aUvLayer);
+    gl.vertexAttribPointer(aUvLayer, 3, gl.FLOAT, false, 0, 0);
+
+    const uTime = gl.getUniformLocation(program, "uTime");
+    const uAspect = gl.getUniformLocation(program, "uAspect");
+    const uPointScale = gl.getUniformLocation(program, "uPointScale");
+    const uMouse = gl.getUniformLocation(program, "uMouse");
+
+    if (uTime === null || uAspect === null || uPointScale === null || uMouse === null) return;
+
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+    gl.disable(gl.DEPTH_TEST);
+
+    let dpr = 1;
+    let width = 0;
+    let height = 0;
+
+    function resize() {
+        const rect = canvas.getBoundingClientRect();
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = rect.width;
+        height = rect.height;
+
+        if (width <= 0 || height <= 0) return;
+
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        gl.viewport(0, 0, canvas.width, canvas.height);
+    }
+
+    window.addEventListener("resize", resize);
+    if ("ResizeObserver" in window) {
+        new ResizeObserver(resize).observe(canvas);
+    }
+    resize();
+
+    const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+
+    hero.addEventListener("pointermove", (e) => {
+        const rect = hero.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+
+        mouse.targetX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.targetY = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
+    });
+
+    hero.addEventListener("pointerleave", () => {
+        mouse.targetX = 0;
+        mouse.targetY = 0;
+    });
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const startTime = performance.now();
+
+    function drawFrame(elapsed) {
+        gl.clearColor(0, 0, 0, 0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+
+        gl.useProgram(program);
+        gl.uniform1f(uTime, elapsed);
+        gl.uniform1f(uAspect, width / Math.max(height, 1));
+        gl.uniform1f(uPointScale, dpr);
+        gl.uniform2f(uMouse, mouse.x, mouse.y);
+
+        gl.drawArrays(gl.POINTS, 0, totalParticles);
+    }
+
+    if (reduceMotion) {
+        drawFrame(1.5);
+        return;
+    }
+
+    function render(now) {
+        const elapsed = (now - startTime) * 0.001;
+
+        mouse.x += (mouse.targetX - mouse.x) * 0.05;
+        mouse.y += (mouse.targetY - mouse.y) * 0.05;
+
+        drawFrame(elapsed);
+        requestAnimationFrame(render);
+    }
+
+    requestAnimationFrame(render);
+})();
+
+/* =========================================
+   SECTION 2 & 3: SLOW FLUID WAVE CANVAS
+========================================= */
+(() => {
+    "use strict";
+
+    const flowCanvas = document.getElementById("flow-canvas");
+    if (!flowCanvas) return;
+
+    const gl = flowCanvas.getContext("webgl", {
+        alpha: true,
+        antialias: false,
+        powerPreference: "low-power"
+    });
+    if (!gl) return;
+
+    const vsSource = `
+        attribute vec2 aPos;
+        varying vec2 vUv;
+        void main() {
+            vUv = aPos * 0.5 + 0.5;
+            gl_Position = vec4(aPos, 0.0, 1.0);
+        }
+    `;
+
+    const fsSource = `
+        precision mediump float;
+
+        varying vec2 vUv;
+        uniform float uTime;
+        uniform float uAspect;
+
+        float hash(vec2 p) {
+            return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+        }
+
+        float noise(vec2 p) {
+            vec2 i = floor(p);
+            vec2 f = fract(p);
+            vec2 u = f * f * (3.0 - 2.0 * f);
+            return mix(
+                mix(hash(i + vec2(0.0, 0.0)), hash(i + vec2(1.0, 0.0)), u.x),
+                mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),
+                u.y
+            );
+        }
+
+        float fbm(vec2 p) {
+            float v = 0.0;
+            float a = 0.5;
+            mat2 rot = mat2(0.80, 0.60, -0.60, 0.80);
+            for (int i = 0; i < 4; i++) {
+                v += a * noise(p);
+                p = rot * p * 1.9 + vec2(1.7, 9.2);
+                a *= 0.5;
+            }
+            return v;
+        }
+
+        void main() {
+            float t = uTime * 0.09;
+
+            vec2 p = vec2(vUv.x * uAspect * 1.35, vUv.y * 1.85);
+
+            vec2 q = vec2(
+                fbm(p + vec2(0.0, t * 0.8)),
+                fbm(p + vec2(5.2, -t * 0.6))
+            );
+
+            vec2 r = vec2(
+                fbm(p + 2.2 * q + vec2(1.7, 9.2) + t * 0.5),
+                fbm(p + 2.2 * q + vec2(8.3, 2.8) - t * 0.4)
+            );
+
+            float f = fbm(p + 2.4 * r);
+
+            float ribbon = smoothstep(0.18, 0.0, abs(f - 0.52));
+            float softGlow = smoothstep(0.25, 0.85, f);
+
+            vec3 midnight = vec3(0.008, 0.012, 0.031);
+            vec3 darkNavy = vec3(0.027, 0.043, 0.118);
+            vec3 brandBlue = vec3(0.008, 0.227, 0.580);
+            vec3 periwinkle = vec3(0.663, 0.737, 1.000);
+            vec3 orangeHint = vec3(0.996, 0.376, 0.184);
+
+            vec3 col = mix(midnight, darkNavy, softGlow * 0.85);
+            col = mix(col, brandBlue, smoothstep(0.35, 0.88, f) * 0.58);
+            col += periwinkle * ribbon * 0.24;
+            col += orangeHint * smoothstep(0.76, 0.98, r.x) * 0.055;
+
+            gl_FragColor = vec4(col, 0.92);
+        }
+    `;
+
+    function compile(type, src) {
+        const s = gl.createShader(type);
+        if (!s) return null;
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+            console.error(gl.getShaderInfoLog(s));
+            gl.deleteShader(s);
+            return null;
+        }
+        return s;
+    }
+
+    const vs = compile(gl.VERTEX_SHADER, vsSource);
+    const fs = compile(gl.FRAGMENT_SHADER, fsSource);
+    if (!vs || !fs) return;
+
+    const prog = gl.createProgram();
+    if (!prog) return;
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+
+    gl.useProgram(prog);
+
+    const quad = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, quad, gl.STATIC_DRAW);
+
+    const aPos = gl.getAttribLocation(prog, "aPos");
+    gl.enableVertexAttribArray(aPos);
+    gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+    const uTime = gl.getUniformLocation(prog, "uTime");
+    const uAspect = gl.getUniformLocation(prog, "uAspect");
+
+    let w = 1;
+    let h = 1;
+    function resizeFlow() {
+        const rect = flowCanvas.getBoundingClientRect();
+        if (rect.width <= 0 || rect.height <= 0) return;
+        const scale = 0.5;
+        w = rect.width;
+        h = rect.height;
+        flowCanvas.width = Math.max(1, Math.floor(w * scale));
+        flowCanvas.height = Math.max(1, Math.floor(h * scale));
+        gl.viewport(0, 0, flowCanvas.width, flowCanvas.height);
+    }
+
+    window.addEventListener("resize", resizeFlow);
+    if ("ResizeObserver" in window) {
+        new ResizeObserver(resizeFlow).observe(flowCanvas);
+    }
+    resizeFlow();
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const t0 = performance.now();
+
+    function drawFlow(elapsed) {
+        gl.useProgram(prog);
+        gl.uniform1f(uTime, elapsed);
+        gl.uniform1f(uAspect, w / Math.max(h, 1));
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    }
+
+    if (reduceMotion) {
+        drawFlow(2.0);
+        return;
+    }
+
+    function loop(now) {
+        drawFlow((now - t0) * 0.001);
+        requestAnimationFrame(loop);
+    }
+
+    requestAnimationFrame(loop);
+})();
+
+/* =========================================
+   SECTION 2: INDUSTRY CARD SELECTION
+========================================= */
+(() => {
+    "use strict";
+
+    const industryCards = document.querySelectorAll(".vh-industry-card");
+    if (!industryCards.length) return;
+
+    industryCards.forEach((card) => {
+        card.addEventListener("click", () => {
+            industryCards.forEach((c) => c.classList.remove("is-selected"));
+            card.classList.add("is-selected");
+        });
+    });
+})();
+
+/* =========================================
+   SECTION 4: TESTIMONIALS AUTO-SCROLL CAROUSEL
+   (STOPS ON HOVER + WORKS WITH ARROWS & DRAG)
+========================================= */
+(() => {
+    "use strict";
+
+    const viewport = document.getElementById("vh-testimonials-viewport");
+    const track = document.getElementById("vh-testimonials-track");
+    const prevBtn = document.getElementById("vh-testimonial-prev");
+    const nextBtn = document.getElementById("vh-testimonial-next");
+
+    if (!viewport || !track || !prevBtn || !nextBtn) return;
+
+    const originalCards = Array.from(track.querySelectorAll(".vh-testimonial-card"));
+    if (!originalCards.length) return;
+
+    originalCards.forEach((card) => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        track.appendChild(clone);
+    });
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let loopWidth = 0;
+    let stepSize = 0;
+    let offset = 0;
+    let targetOffset = null;
+
+    let isHovered = false;
+    let isDragging = false;
+    let startX = 0;
+    let dragStartOffset = 0;
+
+    const autoSpeed = 36;
+    let lastTime = performance.now();
+
+    function wrapOffset(val) {
+        if (loopWidth <= 0) return 0;
+        return ((val % loopWidth) + loopWidth) % loopWidth;
+    }
+
+    function measure() {
+        const trackStyle = window.getComputedStyle(track);
+        const gap = parseFloat(trackStyle.columnGap || trackStyle.gap) || 0;
+        const cardWidth = originalCards[0].getBoundingClientRect().width;
+        stepSize = cardWidth + gap;
+        loopWidth = stepSize * originalCards.length;
+        offset = wrapOffset(offset);
+        track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+    }
+
+    viewport.addEventListener("mouseenter", () => {
+        isHovered = true;
+    });
+
+    viewport.addEventListener("mouseleave", () => {
+        isHovered = false;
+    });
+
+    prevBtn.addEventListener("click", () => {
+        if (stepSize <= 0) return;
+        const base = targetOffset !== null ? targetOffset : offset;
+        targetOffset = base - stepSize;
+    });
+
+    nextBtn.addEventListener("click", () => {
+        if (stepSize <= 0) return;
+        const base = targetOffset !== null ? targetOffset : offset;
+        targetOffset = base + stepSize;
+    });
+
+    viewport.addEventListener("pointerdown", (e) => {
+        if (e.button !== 0 && e.pointerType === "mouse") return;
+        isDragging = true;
+        targetOffset = null;
+        startX = e.clientX;
+        dragStartOffset = offset;
+        track.classList.add("is-dragging");
+        viewport.setPointerCapture(e.pointerId);
+    });
+
+    viewport.addEventListener("pointermove", (e) => {
+        if (!isDragging) return;
+        const delta = e.clientX - startX;
+        offset = wrapOffset(dragStartOffset - delta);
+        track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+    });
+
+    function endDrag(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove("is-dragging");
+        if (viewport.hasPointerCapture(e.pointerId)) {
+            viewport.releasePointerCapture(e.pointerId);
+        }
+    }
+
+    viewport.addEventListener("pointerup", endDrag);
+    viewport.addEventListener("pointercancel", endDrag);
+
+    function animate(now) {
+        const dt = Math.min((now - lastTime) * 0.001, 0.05);
+        lastTime = now;
+
+        if (!isDragging && loopWidth > 0) {
+            if (targetOffset !== null) {
+                const diff = targetOffset - offset;
+                if (Math.abs(diff) < 0.6) {
+                    offset = wrapOffset(targetOffset);
+                    targetOffset = null;
+                } else {
+                    offset += diff * Math.min(1, dt * 10);
+                }
+                track.style.transform = `translate3d(${-wrapOffset(offset)}px, 0, 0)`;
+            } else if (!isHovered && !reduceMotion) {
+                offset = wrapOffset(offset + autoSpeed * dt);
+                track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener("resize", measure);
+    if ("ResizeObserver" in window) {
+        new ResizeObserver(measure).observe(viewport);
+    }
+
+    measure();
+    requestAnimationFrame(animate);
+})();
+</script>
+
+</body>
+</html>

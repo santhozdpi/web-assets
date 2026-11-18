@@ -1,0 +1,580 @@
+<style>
+.vh-m-overlay{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(2,6,23,.82);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .3s ease,visibility .3s ease;
+}
+.vh-m-overlay.open{opacity:1;visibility:visible}
+.vh-m-box{
+  position:relative;
+  width:min(680px,100%);
+  max-height:92vh;
+  overflow-y:auto;
+  background:
+    radial-gradient(circle at 88% 12%,rgba(37,99,235,.28),transparent 46%),
+    radial-gradient(circle at 12% 88%,rgba(74,116,167,.22),transparent 48%),
+    linear-gradient(145deg,#0B1A36 0%,#081426 58%,#040B1A 100%);
+  border:2px solid rgba(220,234,247,.42);
+  border-radius:8px 24px 8px 24px;
+  box-shadow:8px 8px 0 var(--cobalt,#123499),0 0 55px rgba(37,99,235,.45);
+  color:var(--ice,#DCEAF7);
+  transform:translateX(-32px) scale(.96);
+  transition:transform .4s cubic-bezier(.22,1.25,.36,1);
+}
+.vh-m-overlay.open .vh-m-box{transform:translateX(0) scale(1)}
+
+.vh-m-header{
+  padding:18px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  border-bottom:2px solid rgba(220,234,247,.18);
+  background:rgba(2,6,23,.45);
+}
+.vh-m-steps{display:flex;align-items:center;gap:8px}
+.vh-m-step-pill{
+  padding:5px 11px;
+  border-radius:4px;
+  border:1.5px solid rgba(220,234,247,.25);
+  background:rgba(20,42,68,.55);
+  color:var(--muted,#B8CCE0);
+  font-family:var(--display,"IBM Plex Sans",sans-serif);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.vh-m-step-pill.active{
+  background:linear-gradient(135deg,var(--electric,#2563EB),var(--cobalt,#123499));
+  border-color:var(--white,#FFFFFF);
+  color:var(--white,#FFFFFF);
+  box-shadow:0 0 16px var(--glow-blue,rgba(37,99,235,.55));
+}
+.vh-m-step-pill.done{
+  border-color:var(--slate-blue,#4A74A7);
+  color:var(--ice,#DCEAF7);
+  background:rgba(37,99,235,.22);
+}
+.vh-m-close{
+  width:38px;
+  height:38px;
+  border:2px solid rgba(220,234,247,.32);
+  border-radius:4px;
+  background:rgba(8,20,38,.8);
+  color:var(--white,#FFFFFF);
+  font-size:22px;
+  line-height:1;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  transition:background .2s,border-color .2s;
+}
+.vh-m-close:hover{background:var(--electric,#2563EB);border-color:var(--white,#FFFFFF)}
+
+.vh-m-body{padding:26px 26px 28px}
+.vh-m-panel{display:none;animation:vhPanelIn .38s cubic-bezier(.22,1.25,.36,1)}
+.vh-m-panel.active{display:block}
+@keyframes vhPanelIn{
+  from{opacity:0;transform:translateX(-22px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+.vh-m-title{
+  font:700 26px/1.15 var(--display,"IBM Plex Sans",sans-serif);
+  color:var(--white,#FFFFFF);
+  margin:0 0 6px;
+  text-shadow:0 0 18px rgba(59,130,246,.55);
+}
+.vh-m-sub{
+  font-family:var(--body,"Inter",sans-serif);
+  font-size:14.5px;
+  line-height:1.6;
+  color:var(--muted,#B8CCE0);
+  margin:0 0 22px;
+}
+
+.vh-m-dates{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(115px,1fr));
+  gap:12px;
+}
+.vh-m-date-btn{
+  padding:18px 12px;
+  border:2px solid rgba(220,234,247,.28);
+  border-radius:6px;
+  background:rgba(8,20,38,.78);
+  color:var(--ice,#DCEAF7);
+  text-align:center;
+  cursor:pointer;
+  box-shadow:4px 4px 0 var(--abyss,#020617);
+  transition:all .22s ease;
+}
+.vh-m-date-btn:hover{
+  border-color:var(--white,#FFFFFF);
+  background:linear-gradient(135deg,rgba(37,99,235,.45),rgba(18,52,153,.72));
+  transform:translate(-2px,-2px);
+  box-shadow:5px 5px 0 var(--cobalt,#123499),0 0 22px var(--glow-blue,rgba(37,99,235,.55));
+}
+.vh-m-date-btn.selected{
+  border-color:var(--white,#FFFFFF);
+  background:linear-gradient(135deg,var(--electric,#2563EB),var(--cobalt,#123499));
+  color:var(--white,#FFFFFF);
+  box-shadow:5px 5px 0 var(--abyss,#020617),0 0 26px var(--glow-blue,rgba(37,99,235,.55));
+}
+.vh-m-date-day{
+  display:block;
+  font-family:var(--display,"IBM Plex Sans",sans-serif);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  color:var(--muted,#B8CCE0);
+  margin-bottom:6px;
+}
+.vh-m-date-btn.selected .vh-m-date-day,.vh-m-date-btn:hover .vh-m-date-day{color:var(--ice,#DCEAF7)}
+.vh-m-date-num{
+  display:block;
+  font-family:var(--display,"IBM Plex Sans",sans-serif);
+  font-size:24px;
+  font-weight:700;
+  color:var(--white,#FFFFFF);
+  line-height:1.1;
+}
+.vh-m-date-month{
+  display:block;
+  font-family:var(--body,"Inter",sans-serif);
+  font-size:12.5px;
+  color:var(--ice,#DCEAF7);
+  margin-top:4px;
+}
+
+.vh-m-slot-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+  flex-wrap:wrap;
+}
+.vh-m-slot-count{
+  display:inline-flex;
+  align-items:center;
+  padding:5px 12px;
+  border-radius:4px;
+  background:rgba(37,99,235,.24);
+  border:1.5px solid var(--slate-blue,#4A74A7);
+  font-family:var(--display,"IBM Plex Sans",sans-serif);
+  font-size:12.5px;
+  font-weight:700;
+  color:var(--white,#FFFFFF);
+}
+.vh-m-slots{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
+  max-height:290px;
+  overflow-y:auto;
+  padding-right:4px;
+  margin-bottom:20px;
+}
+.vh-m-slot-btn{
+  padding:11px 8px;
+  border:1.5px solid rgba(220,234,247,.26);
+  border-radius:4px;
+  background:rgba(8,20,38,.78);
+  color:var(--ice,#DCEAF7);
+  font-family:var(--display,"IBM Plex Sans",sans-serif);
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.vh-m-slot-btn:hover{
+  border-color:var(--ice,#DCEAF7);
+  background:rgba(37,99,235,.32);
+  color:var(--white,#FFFFFF);
+}
+.vh-m-slot-btn.selected{
+  border-color:var(--white,#FFFFFF);
+  background:linear-gradient(135deg,var(--electric,#2563EB),var(--cobalt,#123499));
+  color:var(--white,#FFFFFF);
+  box-shadow:3px 3px 0 var(--abyss,#020617),0 0 18px var(--glow-blue,rgba(37,99,235,.55));
+}
+.vh-m-error{
+  font-family:var(--body,"Inter",sans-serif);
+  font-size:13.5px;
+  color:#93C5FD;
+  margin:0 0 14px;
+  display:none;
+}
+.vh-m-error.show{display:block}
+
+.vh-m-summary-bar{
+  padding:11px 14px;
+  margin-bottom:18px;
+  border-radius:4px;
+  border:1.5px solid rgba(220,234,247,.28);
+  background:rgba(2,6,23,.55);
+  font-family:var(--body,"Inter",sans-serif);
+  font-size:13.5px;
+  color:var(--ice,#DCEAF7);
+  line-height:1.5;
+}
+.vh-m-summary-bar strong{font-family:var(--display,"IBM Plex Sans",sans-serif);color:var(--white,#FFFFFF)}
+.vh-m-form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-bottom:18px;
+}
+.vh-m-field{display:flex;flex-direction:column;gap:6px}
+.vh-m-field.full{grid-column:1/-1}
+.vh-m-field label{
+  font-family:var(--display,"IBM Plex Sans",sans-serif);
+  font-size:13px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:var(--ice,#DCEAF7);
+}
+.vh-m-field label span{color:var(--muted,#B8CCE0);font-weight:500;text-transform:none;letter-spacing:0}
+.vh-m-field input,.vh-m-field textarea{
+  width:100%;
+  padding:11px 13px;
+  border:2px solid rgba(220,234,247,.26);
+  border-radius:4px;
+  background:rgba(2,6,23,.68);
+  color:var(--white,#FFFFFF);
+  font-family:var(--body,"Inter",sans-serif);
+  font-size:14.5px;
+  outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.vh-m-field input:focus,.vh-m-field textarea:focus{
+  border-color:var(--ice,#DCEAF7);
+  box-shadow:0 0 18px rgba(37,99,235,.45);
+}
+.vh-m-field textarea{resize:vertical;min-height:84px}
+
+.vh-m-actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:8px;
+}
+.vh-m-back{
+  padding:12px 18px;
+  border:2px solid rgba(220,234,247,.38);
+  border-radius:4px;
+  background:transparent;
+  color:var(--ice,#DCEAF7);
+  font-family:var(--display,"IBM Plex Sans",sans-serif);
+  font-size:13.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:all .2s;
+}
+.vh-m-back:hover{border-color:var(--white,#FFFFFF);color:var(--white,#FFFFFF);background:rgba(220,234,247,.1)}
+
+.vh-m-success{
+  text-align:center;
+  padding:18px 8px 8px;
+}
+.vh-m-check{
+  width:68px;
+  height:68px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  border:2px solid var(--white,#FFFFFF);
+  background:linear-gradient(135deg,var(--electric,#2563EB),var(--cobalt,#123499));
+  color:var(--white,#FFFFFF);
+  font-size:32px;
+  display:grid;
+  place-items:center;
+  box-shadow:0 0 34px rgba(59,130,246,.85);
+}
+.vh-m-success-box{
+  text-align:left;
+  margin:20px 0 24px;
+  padding:16px 18px;
+  border-radius:6px;
+  border:1.5px solid rgba(220,234,247,.3);
+  background:rgba(2,6,23,.58);
+  font-family:var(--body,"Inter",sans-serif);
+  font-size:14.5px;
+  line-height:1.7;
+  color:var(--ice,#DCEAF7);
+}
+
+@media(max-width:600px){
+  .vh-m-body{padding:20px 18px 22px}
+  .vh-m-slots{grid-template-columns:repeat(3,1fr)}
+  .vh-m-form-grid{grid-template-columns:1fr}
+  .vh-m-steps{gap:5px}
+  .vh-m-step-pill{font-size:10.5px;padding:4px 8px}
+}
+</style>
+
+<div class="vh-m-overlay" id="vhMeetingModal" role="dialog" aria-modal="true" aria-labelledby="vhMeetingHeading">
+ <div class="vh-m-box">
+  <div class="vh-m-header">
+   <div class="vh-m-steps" aria-label="Booking progress">
+    <span class="vh-m-step-pill active" data-step-pill="1">1. Date</span>
+    <span class="vh-m-step-pill" data-step-pill="2">2. Time</span>
+    <span class="vh-m-step-pill" data-step-pill="3">3. Details</span>
+   </div>
+   <button type="button" class="vh-m-close" id="vhMeetingClose" aria-label="Close meeting popup">×</button>
+  </div>
+
+  <div class="vh-m-body">
+
+   <div class="vh-m-panel active" data-step-panel="1">
+    <h3 class="vh-m-title" id="vhMeetingHeading">Select a Meeting Date</h3>
+    <p class="vh-m-sub">Choose your preferred day at Asembia AXS27 (Wynn Tower Suite Parlor, Las Vegas).</p>
+    <div class="vh-m-dates" id="vhDateGrid">
+     <button type="button" class="vh-m-date-btn" data-date="Sunday, April 25, 2027">
+      <span class="vh-m-date-day">Sun</span><span class="vh-m-date-num">25</span><span class="vh-m-date-month">Apr 2027</span>
+     </button>
+     <button type="button" class="vh-m-date-btn" data-date="Monday, April 26, 2027">
+      <span class="vh-m-date-day">Mon</span><span class="vh-m-date-num">26</span><span class="vh-m-date-month">Apr 2027</span>
+     </button>
+     <button type="button" class="vh-m-date-btn" data-date="Tuesday, April 27, 2027">
+      <span class="vh-m-date-day">Tue</span><span class="vh-m-date-num">27</span><span class="vh-m-date-month">Apr 2027</span>
+     </button>
+     <button type="button" class="vh-m-date-btn" data-date="Wednesday, April 28, 2027">
+      <span class="vh-m-date-day">Wed</span><span class="vh-m-date-num">28</span><span class="vh-m-date-month">Apr 2027</span>
+     </button>
+     <button type="button" class="vh-m-date-btn" data-date="Thursday, April 29, 2027">
+      <span class="vh-m-date-day">Thu</span><span class="vh-m-date-num">29</span><span class="vh-m-date-month">Apr 2027</span>
+     </button>
+    </div>
+   </div>
+
+   <div class="vh-m-panel" data-step-panel="2">
+    <h3 class="vh-m-title">Select Time Slots</h3>
+    <div class="vh-m-slot-meta">
+     <p class="vh-m-sub" style="margin:0;">Date: <strong id="vhChosenDateText" style="color:#fff;"></strong> — select one or more 30-min slots.</p>
+     <span class="vh-m-slot-count" id="vhSlotCount">0 slots selected</span>
+    </div>
+    <div class="vh-m-slots" id="vhSlotsGrid"></div>
+    <p class="vh-m-error" id="vhSlotError">Please select at least one time slot to continue.</p>
+    <div class="vh-m-actions">
+     <button type="button" class="vh-m-back" id="vhBackToDate">← Change Date</button>
+     <button type="button" class="vh-button vh-button-light" id="vhToDetailsBtn">Next <span>→</span></button>
+    </div>
+   </div>
+
+   <div class="vh-m-panel" data-step-panel="3">
+    <h3 class="vh-m-title">Your Contact Details</h3>
+    <p class="vh-m-sub">Complete your information to confirm your private meeting request.</p>
+    <div class="vh-m-summary-bar" id="vhSummaryBar"></div>
+    <form id="vhMeetingForm">
+     <div class="vh-m-form-grid">
+      <div class="vh-m-field">
+       <label for="vhFullName">Name *</label>
+       <input type="text" id="vhFullName" name="name" placeholder="Jane Doe" required>
+      </div>
+      <div class="vh-m-field">
+       <label for="vhMailId">Mail ID *</label>
+       <input type="email" id="vhMailId" name="email" placeholder="jane@company.com" required>
+      </div>
+      <div class="vh-m-field full">
+       <label for="vhCompany">Company Name *</label>
+       <input type="text" id="vhCompany" name="company" placeholder="Your organization name" required>
+      </div>
+      <div class="vh-m-field full">
+       <label for="vhNotes">Description <span>(Optional)</span></label>
+       <textarea id="vhNotes" name="description" placeholder="Share topics or patient support priorities you'd like to discuss..."></textarea>
+      </div>
+     </div>
+     <div class="vh-m-actions">
+      <button type="button" class="vh-m-back" id="vhBackToSlots">← Change Time</button>
+      <button type="submit" class="vh-button vh-button-light">Submit Request <span>↗</span></button>
+     </div>
+    </form>
+   </div>
+
+   <div class="vh-m-panel" data-step-panel="4">
+    <div class="vh-m-success">
+     <div class="vh-m-check" aria-hidden="true">✓</div>
+     <h3 class="vh-m-title">See You at Asembia AXS27!</h3>
+     <p class="vh-m-sub" id="vhSuccessGreeting" style="margin-bottom:0;"></p>
+     <div class="vh-m-success-box" id="vhSuccessDetails"></div>
+     <button type="button" class="vh-button vh-button-light" id="vhDoneCloseBtn">Done <span>✓</span></button>
+    </div>
+   </div>
+
+  </div>
+ </div>
+</div>
+
+<script>
+(function initMeetingPopup(){
+ const modal=document.getElementById("vhMeetingModal");
+ if(!modal)return;
+
+ const closeBtn=document.getElementById("vhMeetingClose");
+ const doneBtn=document.getElementById("vhDoneCloseBtn");
+ const dateBtns=document.querySelectorAll(".vh-m-date-btn");
+ const slotsGrid=document.getElementById("vhSlotsGrid");
+ const slotCountEl=document.getElementById("vhSlotCount");
+ const slotError=document.getElementById("vhSlotError");
+ const chosenDateText=document.getElementById("vhChosenDateText");
+ const summaryBar=document.getElementById("vhSummaryBar");
+ const form=document.getElementById("vhMeetingForm");
+
+ let selectedDate="";
+ let selectedSlots=[];
+
+ const allSlots=[];
+ for(let mins=7*60; mins<=19*60; mins+=30){
+  const h24=Math.floor(mins/60);
+  const m=mins%60;
+  const ampm=h24>=12?"PM":"AM";
+  const h12=h24%12===0?12:h24%12;
+  allSlots.push(h12+":"+(m===0?"00":"30")+" "+ampm);
+ }
+
+ function renderSlots(){
+  slotsGrid.innerHTML="";
+  allSlots.forEach(function(slot){
+   const btn=document.createElement("button");
+   btn.type="button";
+   btn.className="vh-m-slot-btn"+(selectedSlots.indexOf(slot)!==-1?" selected":"");
+   btn.textContent=slot;
+   btn.addEventListener("click",function(){
+    if(selectedSlots.indexOf(slot)!==-1){
+     selectedSlots=selectedSlots.filter(function(s){return s!==slot;});
+     btn.classList.remove("selected");
+    }else{
+     selectedSlots.push(slot);
+     btn.classList.add("selected");
+    }
+    slotError.classList.remove("show");
+    updateSlotCount();
+   });
+   slotsGrid.appendChild(btn);
+  });
+  updateSlotCount();
+ }
+
+ function updateSlotCount(){
+  const n=selectedSlots.length;
+  slotCountEl.textContent=n+" "+(n===1?"slot":"slots")+" selected";
+ }
+
+ function goToStep(step){
+  modal.querySelectorAll(".vh-m-panel").forEach(function(p){
+   p.classList.toggle("active",Number(p.dataset.stepPanel)===step);
+  });
+  modal.querySelectorAll(".vh-m-step-pill").forEach(function(pill){
+   const s=Number(pill.dataset.stepPill);
+   pill.classList.toggle("active",s===step);
+   pill.classList.toggle("done",s<step);
+  });
+ }
+
+ function openModal(e){
+  if(e)e.preventDefault();
+  resetModal();
+  modal.classList.add("open");
+  document.body.style.overflow="hidden";
+ }
+
+ function closeModal(){
+  modal.classList.remove("open");
+  document.body.style.overflow="";
+ }
+
+ function resetModal(){
+  selectedDate="";
+  selectedSlots=[];
+  dateBtns.forEach(function(b){b.classList.remove("selected");});
+  slotError.classList.remove("show");
+  form.reset();
+  renderSlots();
+  goToStep(1);
+ }
+
+ dateBtns.forEach(function(btn){
+  btn.addEventListener("click",function(){
+   dateBtns.forEach(function(b){b.classList.remove("selected");});
+   btn.classList.add("selected");
+   selectedDate=btn.dataset.date;
+   chosenDateText.textContent=selectedDate;
+   renderSlots();
+   goToStep(2);
+  });
+ });
+
+ document.getElementById("vhBackToDate").addEventListener("click",function(){goToStep(1);});
+ document.getElementById("vhToDetailsBtn").addEventListener("click",function(){
+  if(selectedSlots.length===0){
+   slotError.classList.add("show");
+   return;
+  }
+  const ordered=allSlots.filter(function(s){return selectedSlots.indexOf(s)!==-1;});
+  summaryBar.innerHTML="<strong>Date:</strong> "+selectedDate+"<br><strong>Selected Slots:</strong> "+ordered.join(", ");
+  goToStep(3);
+ });
+
+ document.getElementById("vhBackToSlots").addEventListener("click",function(){goToStep(2);});
+ form.addEventListener("submit",function(e){
+  e.preventDefault();
+  const name=document.getElementById("vhFullName").value.trim();
+  const email=document.getElementById("vhMailId").value.trim();
+  const company=document.getElementById("vhCompany").value.trim();
+  const notes=document.getElementById("vhNotes").value.trim();
+  const ordered=allSlots.filter(function(s){return selectedSlots.indexOf(s)!==-1;});
+
+  document.getElementById("vhSuccessGreeting").textContent=
+   "Thank you, "+name+"! Your private meeting request has been submitted. Our team looks forward to seeing you at Asembia AXS27.";
+
+  const detailsBox=document.getElementById("vhSuccessDetails");
+  detailsBox.innerHTML="";
+  const lines=[
+   ["Name",name],
+   ["Mail ID",email],
+   ["Company",company],
+   ["Date",selectedDate],
+   ["Time Slots",ordered.join(", ")],
+   ["Venue","Wynn Tower Suite Parlor, Las Vegas"]
+  ];
+  if(notes)lines.push(["Notes",notes]);
+
+  lines.forEach(function(pair){
+   const row=document.createElement("div");
+   const strong=document.createElement("strong");
+   strong.textContent=pair[0]+": ";
+   row.appendChild(strong);
+   row.appendChild(document.createTextNode(pair[1]));
+   detailsBox.appendChild(row);
+  });
+
+  goToStep(4);
+ });
+
+ document.querySelectorAll('.vh-header-cta, .vh-request-btn, #contact .vh-button, a[href="#connect"], [data-open-meeting]').forEach(function(trigger){
+  trigger.addEventListener("click",openModal);
+ });
+
+ closeBtn.addEventListener("click",closeModal);
+ doneBtn.addEventListener("click",closeModal);
+ modal.addEventListener("click",function(e){if(e.target===modal)closeModal();});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape"&&modal.classList.contains("open"))closeModal();});
+})();
+</script>

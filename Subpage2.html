@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore Value Health technology for pharmaceutical patient support, market access and connected operations.">
+<title>Value Health | Pharma Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abyss:#020617;
+  --deep:#081426;
+  --navy:#0A1B3A;
+  --royal:#142A44;
+  --cobalt:#123499;
+  --electric:#2563EB;
+  --slate-blue:#4A74A7;
+  --ice:#DCEAF7;
+  --white:#FFFFFF;
+  --muted:#B8CCE0;
+  --line:rgba(220,234,247,.2);
+  --glow-blue:rgba(37,99,235,.55);
+  --glow-ice:rgba(220,234,247,.42);
+  --display:"IBM Plex Sans",sans-serif;
+  --body:"Inter",sans-serif;
+  --max:1220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  margin:0;
+  background:var(--abyss);
+  color:var(--ice);
+  font-family:var(--body);
+  font-weight:400;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--display);cursor:pointer}
+img{max-width:100%;display:block}
+.vh-hub{overflow:clip;background:var(--abyss)}
+.vh-container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+
+/* Scroll Pop-In From Left Animation */
+.vh-reveal{
+  opacity:0;
+  transform:translateX(-68px) scale(.96);
+  transition:opacity .68s ease-out,transform .78s cubic-bezier(.22,1.25,.36,1);
+  will-change:opacity,transform;
+}
+.vh-reveal.is-visible{
+  opacity:1;
+  transform:translateX(0) scale(1);
+}
+
+/* Header (Dark Brutalist + Glow) */
+.vh-header{
+  height:80px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(3,8,24,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:2px solid rgba(220,234,247,.22);
+  box-shadow:0 8px 32px rgba(0,7,45,.65);
+}
+.vh-header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.vh-logo{
+  display:inline-flex;
+  align-items:center;
+  transition:opacity .25s,transform .25s;
+}
+.vh-logo:hover{opacity:.9;transform:translateY(-1px)}
+.vh-logo img{width:184px;max-height:54px;object-fit:contain;object-position:left center}
+.vh-nav{display:flex;align-items:center;gap:34px}
+.vh-nav a{
+  font-family:var(--display);
+  font-size:15.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--ice);
+  transition:color .25s,text-shadow .25s;
+}
+.vh-nav a:hover{
+  color:var(--white);
+  text-shadow:0 0 14px rgba(96,165,250,.95);
+}
+
+/* Flash / Glow Buttons */
+.vh-button{
+  position:relative;
+  overflow:hidden;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border:2px solid var(--ice);
+  border-radius:4px;
+  padding:13px 22px;
+  background:linear-gradient(135deg,var(--electric),var(--cobalt));
+  color:var(--white);
+  font-family:var(--display);
+  font-size:14px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  box-shadow:4px 4px 0 var(--deep),0 0 22px var(--glow-blue);
+  transition:transform .25s,box-shadow .25s,background .25s;
+}
+.vh-button:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:70%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-24deg);
+  transition:left .55s ease;
+  pointer-events:none;
+}
+.vh-button:hover:before{left:140%}
+.vh-button:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--abyss),0 0 32px rgba(59,130,246,.85);
+}
+.vh-button-light{
+  background:linear-gradient(135deg,var(--white),var(--ice));
+  color:var(--deep);
+  border-color:var(--white);
+  box-shadow:4px 4px 0 var(--cobalt),0 0 26px rgba(220,234,247,.55);
+}
+.vh-button-light:hover{
+  background:var(--white);
+  color:var(--abyss);
+  box-shadow:6px 6px 0 var(--electric),0 0 36px rgba(220,234,247,.9);
+}
+.vh-mobile-toggle{display:none;border:2px solid rgba(220,234,247,.35);border-radius:4px;background:rgba(8,20,38,.8);color:var(--ice);font-family:var(--display);font-size:24px;padding:6px 11px}
+
+/* Section 1: Hero with Image Background + 40% Reduced Gradient Mesh */
+.vh-hero{
+  position:relative;
+  isolation:isolate;
+  min-height:395px;
+  display:flex;
+  align-items:center;
+  padding:48px 0 52px;
+  background-color:var(--deep);
+  background-image:url("pinterest-pin-1794988089992.jpg");
+  background-size:cover;
+  background-position:center;
+  color:var(--white);
+  overflow:hidden;
+  border-bottom:2px solid rgba(220,234,247,.22);
+}
+.vh-hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 22%,rgba(37,99,235,.25),transparent 46%),
+    radial-gradient(circle at 84% 72%,rgba(74,116,167,.23),transparent 48%),
+    radial-gradient(ellipse at center,rgba(2,6,23,.31) 0%,rgba(8,20,38,.44) 100%),
+    linear-gradient(125deg,rgba(0,7,45,.43) 0%,rgba(10,36,114,.28) 55%,rgba(20,42,68,.35) 100%);
+}
+.vh-hero-flare{
+  position:absolute;
+  right:10%;
+  top:22%;
+  width:220px;
+  height:220px;
+  z-index:1;
+  pointer-events:none;
+  background:radial-gradient(circle,rgba(220,234,247,.42) 0%,rgba(59,130,246,.18) 35%,transparent 70%);
+  filter:blur(8px);
+  animation:vhPulseLight 4.5s ease-in-out infinite alternate;
+}
+@keyframes vhPulseLight{
+  from{opacity:.45;transform:scale(.94)}
+  to{opacity:.95;transform:scale(1.08)}
+}
+.vh-hero-inner{position:relative;z-index:2;max-width:900px;text-align:center}
+.vh-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--display);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
+  color:var(--ice);
+  margin:0 0 14px;
+  text-shadow:0 0 16px rgba(59,130,246,.85);
+}
+.vh-eyebrow:before{content:"";width:28px;height:3px;background:var(--electric);box-shadow:0 0 12px var(--electric)}
+.vh-hero h1{
+  font:700 clamp(36px,5vw,56px)/1.06 var(--display);
+  text-transform:uppercase;
+  letter-spacing:-.02em;
+  max-width:880px;
+  margin:0 auto 16px;
+  color:var(--white);
+  text-shadow:0 0 32px rgba(37,99,235,.65),0 4px 20px rgba(0,7,45,.9);
+}
+.vh-hero h1 span{
+  color:var(--ice);
+  text-shadow:0 0 28px rgba(220,234,247,.9),0 0 12px var(--electric);
+}
+.vh-hero-description{
+  max-width:690px;
+  margin:0 auto 24px;
+  color:var(--ice);
+  font-family:var(--body);
+  font-size:16px;
+  font-weight:500;
+  line-height:1.68;
+  text-shadow:0 2px 14px rgba(0,7,45,.92);
+}
+.vh-hero-actions{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap}
+.vh-secondary-button{
+  position:relative;
+  overflow:hidden;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:13px 20px;
+  color:var(--white);
+  font-family:var(--display);
+  font-size:14px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  border:2px solid var(--ice);
+  border-radius:4px;
+  background:rgba(8,20,38,.72);
+  backdrop-filter:blur(8px);
+  box-shadow:4px 4px 0 var(--royal),0 0 20px rgba(74,116,167,.45);
+  transition:background .25s,border-color .25s,transform .25s,box-shadow .25s;
+}
+.vh-secondary-button:hover{
+  background:rgba(18,52,153,.82);
+  border-color:var(--white);
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--electric),0 0 28px rgba(59,130,246,.8);
+}
+
+/* Unified Section 2 (Filter Bar) + Section 3 (Video Showcase) with Gradient Mesh UI + Neural Canvas */
+.vh-showcase{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:32px 0 44px;
+  background:
+    radial-gradient(circle at 12% 14%,rgba(37,99,235,.32),transparent 42%),
+    radial-gradient(circle at 88% 22%,rgba(74,116,167,.28),transparent 46%),
+    radial-gradient(circle at 72% 88%,rgba(18,52,153,.42),transparent 50%),
+    linear-gradient(135deg,#020617 0%,#081426 48%,#0B1F47 100%);
+  color:var(--ice);
+  border-bottom:2px solid rgba(220,234,247,.2);
+}
+.vh-showcase-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.85}
+.vh-showcase .vh-container{position:relative;z-index:2}
+
+/* Integrated Section 2 Filter Bar */
+.vh-filter-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:12px 18px;
+  margin-bottom:26px;
+  background:rgba(8,20,38,.78);
+  border:2px solid rgba(220,234,247,.28);
+  border-radius:6px;
+  backdrop-filter:blur(14px);
+  box-shadow:5px 5px 0 var(--cobalt),0 0 28px rgba(37,99,235,.22);
+}
+.vh-ribbon-title{
+  font:700 17px var(--display);
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--white);
+  white-space:nowrap;
+  text-shadow:0 0 14px rgba(59,130,246,.75);
+}
+.vh-categories{display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none}
+.vh-categories::-webkit-scrollbar{display:none}
+.vh-category{
+  position:relative;
+  white-space:nowrap;
+  border:1.5px solid rgba(220,234,247,.22);
+  border-radius:4px;
+  background:rgba(20,42,68,.55);
+  padding:10px 16px;
+  color:var(--ice);
+  font-family:var(--display);
+  font-size:13.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  transition:all .25s;
+}
+.vh-category:hover{
+  color:var(--white);
+  border-color:var(--ice);
+  background:rgba(37,99,235,.35);
+  box-shadow:0 0 16px rgba(59,130,246,.45);
+}
+.vh-category.active{
+  color:var(--white);
+  background:linear-gradient(135deg,var(--electric),var(--cobalt));
+  border-color:var(--white);
+  box-shadow:3px 3px 0 var(--abyss),0 0 22px rgba(59,130,246,.85);
+}
+
+.vh-section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:22px}
+.vh-section-heading .vh-eyebrow{margin-bottom:10px}
+.vh-section-heading h2,.vh-cta h2{
+  font:700 clamp(32px,4.2vw,48px)/1.06 var(--display);
+  text-transform:uppercase;
+  letter-spacing:-.02em;
+  color:var(--white);
+  margin:0 0 10px;
+  text-shadow:0 0 26px rgba(59,130,246,.5);
+}
+.vh-section-heading p{
+  font-family:var(--body);
+  font-size:15.5px;
+  font-weight:400;
+  line-height:1.7;
+  color:var(--muted);
+  max-width:660px;
+  margin:0;
+}
+
+/* Dark Blue Gradient Mesh + Brutalist Video Card */
+.vh-carousel{
+  position:relative;
+  overflow:hidden;
+  border:2px solid rgba(220,234,247,.34);
+  border-radius:8px;
+  background:
+    radial-gradient(circle at 85% 15%,rgba(37,99,235,.26),transparent 45%),
+    radial-gradient(circle at 12% 90%,rgba(74,116,167,.22),transparent 45%),
+    linear-gradient(145deg,#0B1A36 0%,#081426 60%,#040B1A 100%);
+  color:var(--ice);
+  box-shadow:8px 8px 0 var(--cobalt),0 0 42px rgba(37,99,235,.28);
+}
+.vh-carousel-track{position:relative;min-height:400px}
+.vh-slide{position:absolute;inset:0;display:grid;grid-template-columns:1.05fr .95fr;opacity:0;visibility:hidden;pointer-events:none;transform:translateX(4%);transition:opacity .55s,transform .65s cubic-bezier(.2,.75,.25,1),visibility .55s}
+.vh-slide.active{position:relative;opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0)}
+.vh-slide.entering{animation:slideIn .65s cubic-bezier(.2,.75,.25,1)}
+@keyframes slideIn{from{opacity:.2;transform:translateX(5%)}to{opacity:1;transform:translateX(0)}}
+.vh-video-area{
+  min-width:0;
+  padding:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(5,16,42,.65);
+  border-right:2px solid rgba(220,234,247,.16);
+}
+.vh-video-preview{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  border:2px solid rgba(220,234,247,.38);
+  border-radius:6px;
+  padding:0;
+  background:linear-gradient(135deg,var(--deep),var(--cobalt));
+  display:grid;
+  place-items:center;
+  box-shadow:0 0 28px rgba(37,99,235,.38);
+}
+.vh-video-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.vh-video-preview:hover img{transform:scale(1.045)}
+.vh-video-preview:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,6,23,.72),rgba(8,20,38,.12) 70%)}
+.vh-play{
+  position:relative;
+  z-index:2;
+  width:68px;
+  height:68px;
+  border-radius:50%;
+  border:2px solid var(--white);
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--electric),var(--cobalt));
+  color:var(--white);
+  font-size:22px;
+  padding-left:4px;
+  box-shadow:0 0 28px rgba(59,130,246,.9);
+  transition:transform .3s,box-shadow .25s;
+}
+.vh-video-preview:hover .vh-play{transform:scale(1.12);box-shadow:0 0 40px rgba(220,234,247,.95)}
+.vh-video-label{
+  position:absolute;
+  z-index:3;
+  bottom:14px;
+  left:16px;
+  color:var(--white);
+  font-family:var(--display);
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:1.4px;
+  text-shadow:0 2px 10px rgba(0,0,0,.8);
+}
+.vh-slide-content{display:flex;flex-direction:column;justify-content:center;padding:34px 38px;min-width:0}
+.vh-solution-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.vh-solution-category{
+  display:inline-flex;
+  padding:7px 14px;
+  border-radius:4px;
+  border:1.5px solid var(--slate-blue);
+  background:rgba(37,99,235,.24);
+  color:var(--ice);
+  font-family:var(--display);
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:.9px;
+  text-transform:uppercase;
+  box-shadow:0 0 14px rgba(59,130,246,.35);
+}
+.vh-slide-content h3{
+  font:700 clamp(26px,2.8vw,36px)/1.12 var(--display);
+  text-transform:uppercase;
+  letter-spacing:-.015em;
+  color:var(--white);
+  margin:0 0 14px;
+  text-shadow:0 0 18px rgba(74,116,167,.5);
+}
+.vh-slide-description{
+  font-family:var(--body);
+  font-size:15.5px;
+  font-weight:400;
+  line-height:1.72;
+  color:var(--muted);
+  margin:0 0 24px;
+  max-width:480px;
+}
+.vh-slide-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.vh-watch-button,.vh-download-button{
+  position:relative;
+  overflow:hidden;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:13px 18px;
+  border-radius:4px;
+  font-family:var(--display);
+  font-size:13.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  transition:transform .25s,box-shadow .25s,background .25s;
+}
+.vh-watch-button{
+  border:2px solid var(--white);
+  background:linear-gradient(135deg,var(--electric),var(--cobalt));
+  color:var(--white);
+  box-shadow:4px 4px 0 var(--abyss),0 0 22px var(--glow-blue);
+}
+.vh-watch-button:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--abyss),0 0 32px rgba(96,165,250,.95);
+}
+.vh-download-button{
+  border:2px solid rgba(220,234,247,.55);
+  background:rgba(10,27,58,.82);
+  color:var(--ice);
+  box-shadow:4px 4px 0 var(--royal);
+}
+.vh-download-button:hover{
+  background:rgba(37,99,235,.32);
+  border-color:var(--white);
+  color:var(--white);
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--cobalt),0 0 20px rgba(74,116,167,.55);
+}
+
+/* Carousel Controls */
+.vh-carousel-controls{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:20px}
+.vh-controls-left,.vh-controls-right{display:flex;align-items:center;gap:10px}
+.vh-progress{display:flex;align-items:center;gap:8px;flex:1;max-width:440px}
+.vh-progress-item{position:relative;height:6px;flex:1;border:0;border-radius:2px;padding:0;background:rgba(220,234,247,.2);overflow:hidden}
+.vh-progress-item:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--electric),var(--ice));box-shadow:0 0 12px var(--electric);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.vh-progress-item.active:after{transform:scaleX(1)}
+.vh-arrow{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border:2px solid rgba(220,234,247,.45);
+  border-radius:4px;
+  background:rgba(8,20,38,.85);
+  color:var(--white);
+  font-family:var(--display);
+  font-size:20px;
+  font-weight:700;
+  box-shadow:3px 3px 0 var(--cobalt);
+  transition:background .25s,color .25s,transform .25s,box-shadow .25s;
+}
+.vh-arrow:hover{
+  background:var(--electric);
+  border-color:var(--white);
+  transform:translate(-2px,-2px);
+  box-shadow:5px 5px 0 var(--abyss),0 0 22px var(--glow-blue);
+}
+.vh-autoplay-control{
+  border:2px solid rgba(220,234,247,.32);
+  border-radius:4px;
+  background:rgba(8,20,38,.82);
+  color:var(--ice);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--display);
+  font-size:13px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  padding:9px 15px;
+  transition:background .25s,box-shadow .25s;
+}
+.vh-autoplay-control:hover{background:rgba(37,99,235,.32);border-color:var(--white);box-shadow:0 0 16px var(--glow-blue)}
+
+/* Section 4: CTA */
+.vh-cta{
+  position:relative;
+  overflow:hidden;
+  padding:46px 24px 48px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 50%,rgba(37,99,235,.28),transparent 46%),
+    radial-gradient(circle at 80% 30%,rgba(74,116,167,.24),transparent 48%),
+    linear-gradient(120deg,#020617 0%,#081426 55%,#0E234E 100%);
+  color:var(--ice);
+  border-bottom:2px solid rgba(220,234,247,.2);
+}
+.vh-cta-inner{position:relative;max-width:780px;margin:auto}
+.vh-cta .vh-eyebrow{color:var(--ice);margin-bottom:12px}
+.vh-cta h2{color:var(--white);margin:0 auto 14px}
+.vh-cta p{
+  font-family:var(--body);
+  font-size:16px;
+  font-weight:400;
+  line-height:1.72;
+  color:var(--muted);
+  max-width:650px;
+  margin:0 auto 22px;
+}
+
+/* Footer (Titles = IBM Plex Sans, Text & Links = Inter) */
+.vh-footer{
+  padding:46px 0 22px;
+  background:
+    radial-gradient(circle at 90% 10%,rgba(18,52,153,.28),transparent 45%),
+    #03091B;
+  color:var(--ice);
+  font-family:var(--body);
+}
+.vh-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;padding-bottom:30px}
+.vh-footer .vh-logo{margin-bottom:16px}
+.vh-footer-description{
+  font-family:var(--body);
+  font-size:14.5px;
+  font-weight:400;
+  line-height:1.7;
+  color:var(--muted);
+  max-width:340px;
+  margin:0;
+}
+.vh-footer h4{
+  font:700 17.5px var(--display);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--white);
+  margin:4px 0 16px;
+  text-shadow:0 0 12px rgba(59,130,246,.45);
+}
+.vh-footer-links{display:flex;flex-direction:column;gap:12px}
+.vh-footer-links a{
+  font-family:var(--body);
+  font-size:14px;
+  font-weight:500;
+  color:var(--muted);
+  transition:color .2s,text-shadow .2s;
+}
+.vh-footer-links a:hover{color:var(--white);text-shadow:0 0 12px rgba(96,165,250,.85)}
+.vh-footer-bottom{
+  padding-top:18px;
+  border-top:1px solid rgba(220,234,247,.18);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  font-family:var(--body);
+  font-size:13.5px;
+  font-weight:500;
+  color:var(--muted);
+}
+.vh-footer-bottom a{color:var(--ice);font-family:var(--body);font-weight:600}
+.vh-footer-bottom a:hover{color:var(--white);text-decoration:underline}
+
+/* Modal */
+.vh-modal{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:22px;background:rgba(2,6,23,.86);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:.3s}
+.vh-modal.open{opacity:1;visibility:visible}
+.vh-modal-box{
+  width:min(900px,100%);
+  max-height:92vh;
+  overflow:auto;
+  border-radius:8px;
+  border:2px solid rgba(220,234,247,.38);
+  background:var(--deep);
+  color:var(--ice);
+  transform:translateY(18px);
+  transition:.35s;
+  box-shadow:8px 8px 0 var(--cobalt),0 0 50px rgba(37,99,235,.45);
+}
+.vh-modal.open .vh-modal-box{transform:translateY(0)}
+.vh-modal-header{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+.vh-modal-header h3{font:700 20px var(--display);text-transform:uppercase;margin:0;color:var(--white)}
+.vh-modal-close{width:38px;height:38px;border:2px solid var(--line);border-radius:4px;background:transparent;color:var(--white);font-family:var(--display);font-size:22px;display:grid;place-items:center}
+.vh-modal-close:hover{background:var(--electric);border-color:var(--white)}
+.vh-player{position:relative;width:100%;aspect-ratio:16/9;background:var(--abyss);display:grid;place-items:center}
+.vh-player iframe,.vh-player video{width:100%;height:100%;border:0;object-fit:contain}
+.vh-player-message{padding:30px;text-align:center;color:var(--ice)}
+.vh-player-message strong{display:block;font:700 24px var(--display);margin-bottom:9px}
+.vh-player-message p{font-family:var(--body);font-size:15px;line-height:1.75;color:var(--muted);max-width:470px;margin:auto}
+.vh-modal-body{padding:22px 24px}
+.vh-modal-body h3{font:700 26px var(--display);text-transform:uppercase;color:var(--white);margin:0 0 8px}
+.vh-modal-body p{font-family:var(--body);font-size:15px;line-height:1.75;color:var(--muted);margin:0}
+
+@media(max-width:900px){
+ .vh-nav{gap:20px}.vh-slide-content{padding:30px 26px}.vh-footer-grid{grid-template-columns:1.5fr 1fr 1fr}.vh-footer-grid>div:first-child{grid-column:1/-1}
+}
+@media(max-width:700px){
+ .vh-container{width:calc(100% - 32px)}
+ .vh-header{height:72px}.vh-logo img{width:155px;max-height:46px}
+ .vh-mobile-toggle{display:block}.vh-header-cta{display:none}
+ .vh-nav{display:none;position:absolute;top:71px;left:0;right:0;padding:14px 22px 20px;background:var(--deep);border-bottom:2px solid rgba(220,234,247,.25);flex-direction:column;align-items:stretch;gap:0}
+ .vh-nav.open{display:flex}.vh-nav a{padding:14px 4px;border-bottom:1px solid var(--line);font-size:16px}
+ .vh-hero{min-height:330px;padding:42px 0 46px}.vh-hero h1{font-size:clamp(30px,8.5vw,44px)}.vh-hero-description{font-size:14.5px}
+ .vh-showcase{padding:26px 0 36px}
+ .vh-filter-bar{display:block;padding:12px 14px;margin-bottom:20px}
+ .vh-ribbon-title{margin-bottom:10px;font-size:15px}
+ .vh-category{font-size:12.5px;padding:9px 12px}
+ .vh-section-heading{display:block;margin-bottom:18px}.vh-section-heading h2{font-size:32px}.vh-section-heading p{font-size:14.5px}
+ .vh-carousel-track{min-height:0}.vh-slide{display:flex;flex-direction:column}.vh-video-area{padding:14px;border-right:0;border-bottom:2px solid rgba(220,234,247,.16)}.vh-slide-content{padding:24px 20px 26px}.vh-slide-content h3{font-size:26px}.vh-slide-description{font-size:14.5px}
+ .vh-carousel-controls{flex-wrap:wrap;gap:12px}.vh-controls-left{order:2}.vh-progress{order:1;max-width:none;width:100%;flex-basis:100%}.vh-controls-right{order:3;margin-left:auto}
+ .vh-autoplay-control{font-size:0;padding:8px 12px}.vh-autoplay-control span:first-child{font-size:16px}
+ .vh-cta{padding:38px 18px 40px}.vh-cta h2{font-size:32px}.vh-cta p{font-size:14.5px}
+ .vh-footer{padding:38px 0 20px}.vh-footer-grid{grid-template-columns:1fr 1fr;gap:26px 18px}.vh-footer-grid>div:first-child{grid-column:1/-1}
+ .vh-footer-bottom{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:390px){.vh-footer-grid{grid-template-columns:1fr}.vh-footer-grid>div:first-child{grid-column:auto}.vh-hero h1{font-size:29px}}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+ .vh-reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="vh-hub">
+<header class="vh-header">
+ <div class="vh-container vh-header-inner">
+  <a href="https://valuehealthai.com/" class="vh-logo" aria-label="Value Health home"><img src="Logo.png" alt="Value Health"></a>
+  <button class="vh-mobile-toggle" id="vhMobileToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav class="vh-nav" id="vhNavigation">
+   <a href="https://valuehealthai.com/pharma/">Pharma</a>
+   <a href="https://valuehealthai.com/hub/">Hub</a>
+   <a href="https://valuehealthai.com/specialty-pharmacy/">Specialty Pharmacy</a>
+  </nav>
+  <a href="https://valuehealthai.com/contact/" class="vh-button vh-header-cta">Book a Meeting <span>↗</span></a>
+ </div>
+</header>
+
+<section class="vh-hero" id="overview">
+ <div class="vh-hero-overlay" aria-hidden="true"></div>
+ <div class="vh-hero-flare" aria-hidden="true"></div>
+ <div class="vh-container vh-hero-inner vh-reveal">
+  <p class="vh-eyebrow">Pharmaceutical Solutions</p>
+  <h1>Technology That Moves Pharmaceutical Patient Support <span>Forward.</span></h1>
+  <p class="vh-hero-description">Discover technology solutions designed to help pharmaceutical organizations connect patient journeys, simplify operations, improve access and coordinate patient support programs.</p>
+  <div class="vh-hero-actions">
+   <a href="#vhSolutions" class="vh-button vh-button-light">Explore Our Solutions <span>↓</span></a>
+   <a href="https://valuehealthai.com/contact/" class="vh-secondary-button">Talk to Our Team <span>↗</span></a>
+  </div>
+ </div>
+</section>
+
+<section class="vh-showcase" id="vhSolutions">
+ <canvas class="vh-showcase-canvas" id="vhShowcaseCanvas" aria-hidden="true"></canvas>
+ <div class="vh-container">
+  <div class="vh-filter-bar vh-reveal">
+   <div class="vh-ribbon-title">Explore Solutions</div>
+   <div class="vh-categories" id="vhCategories" role="group" aria-label="Filter solutions">
+    <button class="vh-category active" data-category="All">All Solutions</button>
+    <button class="vh-category" data-category="Patient Support">Patient Support</button>
+    <button class="vh-category" data-category="Market Access">e-services</button>
+    <button class="vh-category" data-category="Automation">Ai agents</button>
+   </div>
+  </div>
+
+  <div class="vh-section-heading vh-reveal">
+   <div>
+    <p class="vh-eyebrow">Explore Our Capabilities</p>
+    <h2>Our Pharma Solutions</h2>
+    <p>Explore our portfolio of solutions through short videos designed to help you understand our technology, capabilities and approach.</p>
+   </div>
+  </div>
+
+  <div class="vh-carousel vh-reveal" id="vhCarousel"><div class="vh-carousel-track" id="vhTrack"></div></div>
+
+  <div class="vh-carousel-controls vh-reveal">
+   <div class="vh-controls-left">
+    <button class="vh-arrow" id="vhPrev" aria-label="Previous solution">←</button>
+    <button class="vh-arrow" id="vhNext" aria-label="Next solution">→</button>
+   </div>
+   <div class="vh-progress" id="vhProgress" aria-label="Choose a solution"></div>
+   <div class="vh-controls-right">
+    <button class="vh-autoplay-control" id="vhAutoToggle" aria-label="Pause autoplay"><span id="vhAutoIcon">Ⅱ</span><span id="vhAutoText">Pause autoplay</span></button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="vh-cta" id="contact">
+ <div class="vh-cta-inner vh-reveal">
+  <p class="vh-eyebrow">Let's Connect</p>
+  <h2>Let's Move Patient Support Forward Together.</h2>
+  <p>Every pharmaceutical program has different operational needs. Connect with Value Health to explore technology solutions designed around your patient support goals.</p>
+  <a href="https://valuehealthai.com/contact/" class="vh-button vh-button-light">Book a Meeting <span>↗</span></a>
+ </div>
+</section>
+
+<footer class="vh-footer">
+ <div class="vh-container vh-reveal">
+  <div class="vh-footer-grid">
+   <div>
+    <a href="https://valuehealthai.com/" class="vh-logo"><img src="Logo.png" alt="Value Health"></a>
+    <p class="vh-footer-description">Enabling connected healthcare experiences through technology solutions that support pharmaceutical patient services and healthcare operations.</p>
+   </div>
+   <div><h4>Solutions</h4><div class="vh-footer-links">
+    <a href="https://valuehealthai.com/pharma/">Pharma Solutions</a><a href="https://valuehealthai.com/hub/">Hub Solutions</a><a href="https://valuehealthai.com/specialty-pharmacy/">Specialty Pharmacy</a>
+   </div></div>
+   <div><h4>Explore</h4><div class="vh-footer-links">
+    <a href="https://valuehealthai.com/about-us/">About Us</a><a href="https://valuehealthai.com/resources/">Resources</a><a href="https://valuehealthai.com/blog/">Insights &amp; Blogs</a>
+   </div></div>
+   <div><h4>Connect</h4><div class="vh-footer-links">
+    <a href="https://valuehealthai.com/contact/">Contact Us</a><a href="https://www.linkedin.com/company/value-health-ai/">LinkedIn ↗</a><a href="https://valuehealthai.com/contact/">Book a Meeting</a>
+   </div></div>
+  </div>
+  <div class="vh-footer-bottom"><span>© <span id="vhYear">2026</span> Value Health. All rights reserved.</span><a href="https://valuehealthai.com/privacy-policy/">Privacy Policy</a></div>
+ </div>
+</footer>
+</div>
+
+<div class="vh-modal" id="vhModal" role="dialog" aria-modal="true" aria-label="Solution video">
+ <div class="vh-modal-box">
+  <div class="vh-modal-header"><h3 id="vhModalHeaderTitle">Solution Video</h3><button class="vh-modal-close" id="vhModalClose" aria-label="Close video">×</button></div>
+  <div class="vh-player" id="vhPlayer"></div>
+  <div class="vh-modal-body"><h3 id="vhModalTitle"></h3><p id="vhModalDescription"></p></div>
+ </div>
+</div>
+
+<script>
+const YOUTUBE_VIDEO_ID = "Bf95s8nlGvw";
+const DEFAULT_VIDEO_EMBED = `https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}`;
+const DEFAULT_THUMBNAIL = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`;
+const FALLBACK_THUMBNAIL = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/hqdefault.jpg`;
+
+const pharmaSolutions = [
+ {category:"Patient Support",title:"Electronic Benefit Verification",description:"Simplify insurance coverage checks and support patient access workflows through electronic benefit verification and connected data processes.",video:DEFAULT_VIDEO_EMBED,thumbnail:DEFAULT_THUMBNAIL,brochure:""},
+ {category:"Market Access",title:"Electronic Prior Authorization",description:"Support prior authorization workflows through structured information, coordinated processes and improved visibility across access operations.",video:DEFAULT_VIDEO_EMBED,thumbnail:DEFAULT_THUMBNAIL,brochure:""},
+ {category:"Patient Support",title:"Electronic Patient Assistance Program",description:"Support patient assistance workflows through connected processes that help coordinate eligibility, enrollment and program administration.",video:DEFAULT_VIDEO_EMBED,thumbnail:DEFAULT_THUMBNAIL,brochure:""},
+ {category:"Patient Support",title:"Medivo 360",description:"Explore a connected, custom-built patient support operations platform designed to bring patient services workflows and operational visibility together.",video:DEFAULT_VIDEO_EMBED,thumbnail:DEFAULT_THUMBNAIL,brochure:""},
+ {category:"Market Access",title:"Field Reimbursement Management",description:"Support field reimbursement teams with connected workflows, information access and tools designed to improve coordination and visibility.",video:DEFAULT_VIDEO_EMBED,thumbnail:DEFAULT_THUMBNAIL,brochure:""},
+ {category:"Automation",title:"Contact Center Voice Assist Agent",description:"Explore AI-enabled voice assistance designed to support contact center interactions and streamline service workflows.",video:DEFAULT_VIDEO_EMBED,thumbnail:DEFAULT_THUMBNAIL,brochure:""},
+ {category:"Automation",title:"AI AuditPro",description:"Explore AI-powered contact center quality monitoring with interaction analysis, explainable scoring and actionable coaching insights.",video:DEFAULT_VIDEO_EMBED,thumbnail:DEFAULT_THUMBNAIL,brochure:""},
+ {category:"Automation",title:"Document Intake Automation",description:"Support document intake processes with structured data capture, workflow coordination and automation-enabled processing.",video:DEFAULT_VIDEO_EMBED,thumbnail:DEFAULT_THUMBNAIL,brochure:""},
+ {category:"Market Access",title:"Benefit Verification & Formulary Intelligence",description:"Bring benefit information and formulary insights into a more connected approach to patient access and coverage workflows.",video:DEFAULT_VIDEO_EMBED,thumbnail:DEFAULT_THUMBNAIL,brochure:""},
+ {category:"Patient Support",title:"Scalable Patient Support Programs",description:"Explore connected technology approaches designed to support patient service workflows, program coordination and operational scalability.",video:DEFAULT_VIDEO_EMBED,thumbnail:DEFAULT_THUMBNAIL,brochure:""}
+];
+
+const track=document.getElementById("vhTrack");
+const progress=document.getElementById("vhProgress");
+const modal=document.getElementById("vhModal");
+const player=document.getElementById("vhPlayer");
+let activeCategory="All",visibleSolutions=[...pharmaSolutions],currentIndex=0,autoplay=true,timer=null;
+const fallbackArtwork=`<div class="vh-artwork" aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(circle at 75% 25%,rgba(74,116,167,.4),transparent 38%),linear-gradient(135deg,#081426,#123499);"></div>`;
+
+function render(){
+ const item=visibleSolutions[currentIndex];
+ if(!item)return;
+ track.innerHTML="";
+ const slide=document.createElement("article");
+ slide.className="vh-slide active entering";
+ const visual=document.createElement("div");
+ visual.className="vh-video-area";
+ const preview=document.createElement("button");
+ preview.className="vh-video-preview";
+ preview.type="button";
+ preview.setAttribute("aria-label",`Watch ${item.title} overview`);
+ preview.insertAdjacentHTML("beforeend",fallbackArtwork);
+
+ const thumbUrl=item.thumbnail||DEFAULT_THUMBNAIL;
+ const img=document.createElement("img");
+ img.src=thumbUrl;
+ img.alt=`${item.title} solution video thumbnail`;
+ img.onload=()=>{if(img.naturalWidth<=120&&img.src!==FALLBACK_THUMBNAIL){img.src=FALLBACK_THUMBNAIL;}};
+ img.onerror=()=>{if(img.src!==FALLBACK_THUMBNAIL){img.src=FALLBACK_THUMBNAIL;}else{img.remove();}};
+ preview.appendChild(img);
+
+ preview.insertAdjacentHTML("beforeend",`<span class="vh-play" aria-hidden="true">▶</span><span class="vh-video-label">WATCH SOLUTION OVERVIEW</span>`);
+ preview.addEventListener("click",()=>openModal(item));
+ visual.appendChild(preview);
+
+ const copy=document.createElement("div");
+ copy.className="vh-slide-content";
+ copy.innerHTML=`<div class="vh-solution-meta"><span class="vh-solution-category">${item.category}</span></div><h3></h3><p class="vh-slide-description"></p><div class="vh-slide-actions"><button class="vh-watch-button" type="button">▶ &nbsp; Watch Video</button><button class="vh-download-button" type="button">↓ &nbsp; Download Sample Brochure</button></div>`;
+ copy.querySelector("h3").textContent=item.title;
+ copy.querySelector(".vh-slide-description").textContent=item.description;
+ copy.querySelector(".vh-watch-button").addEventListener("click",()=>openModal(item));
+ copy.querySelector(".vh-download-button").addEventListener("click",()=>downloadOverview(item));
+ slide.append(visual,copy);track.appendChild(slide);
+
+ progress.innerHTML="";
+ visibleSolutions.forEach((solution,index)=>{
+  const bar=document.createElement("button");
+  bar.type="button";bar.className="vh-progress-item"+(index===currentIndex?" active":"");
+  bar.setAttribute("aria-label",`Show ${solution.title}`);
+  bar.setAttribute("aria-current",index===currentIndex?"true":"false");
+  bar.addEventListener("click",()=>{currentIndex=index;render();restartAutoplay()});
+  progress.appendChild(bar);
+ });
+}
+function moveTo(index){currentIndex=(index+visibleSolutions.length)%visibleSolutions.length;render();restartAutoplay()}
+function filterSolutions(category){
+ activeCategory=category;
+ visibleSolutions=category==="All"?[...pharmaSolutions]:pharmaSolutions.filter(s=>s.category===category);
+ currentIndex=0;
+ document.querySelectorAll(".vh-category").forEach(btn=>btn.classList.toggle("active",btn.dataset.category===category));
+ render();restartAutoplay();
+}
+function openModal(item){
+ document.getElementById("vhModalHeaderTitle").textContent=item.title;
+ document.getElementById("vhModalTitle").textContent=item.title;
+ document.getElementById("vhModalDescription").textContent=item.description;
+ player.innerHTML="";
+ if(item.video){
+  const frame=document.createElement("iframe");
+  frame.src=item.video+"?autoplay=1&rel=0";
+  frame.title=item.title+" video";
+  frame.referrerPolicy="strict-origin-when-cross-origin";
+  frame.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  frame.allowFullscreen=true;
+  player.appendChild(frame);
+ }else{
+  player.innerHTML='<div class="vh-player-message"><strong>Solution Video</strong><p>A video overview for this solution will appear here once the approved video is added.</p></div>';
+ }
+ modal.classList.add("open");document.body.style.overflow="hidden";stopAutoplay();
+}
+function closeModal(){modal.classList.remove("open");player.innerHTML="";document.body.style.overflow="";restartAutoplay()}
+function downloadOverview(item){
+ const content=["VALUE HEALTH","PHARMA SOLUTION OVERVIEW","","SOLUTION: "+item.title,"CATEGORY: "+item.category,"","OVERVIEW",item.description,"","Value Health provides technology solutions supporting pharmaceutical patient services, healthcare operations and connected workflows.","","This is a sample overview. Replace it with the approved solution brochure when available.","© Value Health"].join("\n");
+ const blob=new Blob([content],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob),link=document.createElement("a");
+ link.href=url;link.download="Value-Health-"+item.title.replace(/[^a-z0-9]/gi,"-")+"-Overview.txt";
+ document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);
+}
+function stopAutoplay(){if(timer){clearInterval(timer);timer=null}}
+function startAutoplay(){stopAutoplay();if(autoplay&&visibleSolutions.length>1&&!modal.classList.contains("open"))timer=setInterval(()=>{currentIndex=(currentIndex+1)%visibleSolutions.length;render()},5200)}
+function restartAutoplay(){startAutoplay();updateAutoplayUI()}
+function updateAutoplayUI(){document.getElementById("vhAutoIcon").textContent=autoplay?"Ⅱ":"▶";document.getElementById("vhAutoText").textContent=autoplay?"Pause autoplay":"Play autoplay";document.getElementById("vhAutoToggle").setAttribute("aria-label",autoplay?"Pause autoplay":"Play autoplay")}
+document.getElementById("vhPrev").addEventListener("click",()=>moveTo(currentIndex-1));
+document.getElementById("vhNext").addEventListener("click",()=>moveTo(currentIndex+1));
+document.getElementById("vhAutoToggle").addEventListener("click",()=>{autoplay=!autoplay;updateAutoplayUI();startAutoplay()});
+document.querySelectorAll(".vh-category").forEach(btn=>btn.addEventListener("click",()=>filterSolutions(btn.dataset.category)));
+document.getElementById("vhModalClose").addEventListener("click",closeModal);
+modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeModal()});
+const menuToggle=document.getElementById("vhMobileToggle"),nav=document.getElementById("vhNavigation");
+menuToggle.addEventListener("click",()=>{const open=nav.classList.toggle("open");menuToggle.setAttribute("aria-expanded",String(open));menuToggle.textContent=open?"×":"☰"});
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.textContent="☰"}));
+document.getElementById("vhYear").textContent=new Date().getFullYear();
+
+/* Scroll Pop-In From Left Observer */
+(function initScrollReveal(){
+ const targets=document.querySelectorAll(".vh-reveal");
+ if(!("IntersectionObserver" in window)){
+  targets.forEach(el=>el.classList.add("is-visible"));
+  return;
+ }
+ const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+   if(entry.isIntersecting){
+    entry.target.classList.add("is-visible");
+    observer.unobserve(entry.target);
+   }
+  });
+ },{threshold:0.12,rootMargin:"0px 0px -30px 0px"});
+ targets.forEach(el=>observer.observe(el));
+})();
+
+/* Pharma + AI Neural Network Background Loop (Blue Palette in Section 3) */
+(function initShowcaseAnimation(){
+ const canvas=document.getElementById("vhShowcaseCanvas");
+ if(!canvas)return;
+ const ctx=canvas.getContext("2d");
+ const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ let w=0,h=0,dpr=1,nodes=[],hexes=[],pulses=[];
+
+ function resize(){
+  const rect=canvas.parentElement.getBoundingClientRect();
+  dpr=Math.min(window.devicePixelRatio||1,2);
+  w=rect.width;h=rect.height;
+  canvas.width=w*dpr;canvas.height=h*dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  buildScene();
+ }
+
+ function buildScene(){
+  const nodeCount=Math.max(28,Math.min(60,Math.floor((w*h)/14000)));
+  nodes=[];
+  for(let i=0;i<nodeCount;i++){
+   nodes.push({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    vx:(Math.random()-.5)*0.32,
+    vy:(Math.random()-.5)*0.32,
+    r:1.7+Math.random()*2.3,
+    isHub:i%5===0,
+    phase:Math.random()*Math.PI*2
+   });
+  }
+  const hexCount=Math.max(5,Math.floor(w/200));
+  hexes=[];
+  for(let i=0;i<hexCount;i++){
+   hexes.push({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    size:24+Math.random()*28,
+    rot:Math.random()*Math.PI,
+    vRot:(Math.random()-.5)*0.0025,
+    vx:(Math.random()-.5)*0.14,
+    vy:(Math.random()-.5)*0.14
+   });
+  }
+  pulses=[];
+ }
+
+ function drawHex(x,y,r,rot,alpha){
+  ctx.save();
+  ctx.translate(x,y);
+  ctx.rotate(rot);
+  ctx.beginPath();
+  for(let i=0;i<6;i++){
+   const angle=(Math.PI/3)*i;
+   const px=Math.cos(angle)*r,py=Math.sin(angle)*r;
+   if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);
+  }
+  ctx.closePath();
+  ctx.strokeStyle=`rgba(74,116,167,${alpha})`;
+  ctx.lineWidth=1;
+  ctx.stroke();
+  ctx.restore();
+ }
+
+ function frame(time){
+  ctx.clearRect(0,0,w,h);
+
+  for(const hx of hexes){
+   if(!reducedMotion){
+    hx.x+=hx.vx;hx.y+=hx.vy;hx.rot+=hx.vRot;
+    if(hx.x<-60)hx.x=w+60;if(hx.x>w+60)hx.x=-60;
+    if(hx.y<-60)hx.y=h+60;if(hx.y>h+60)hx.y=-60;
+   }
+   drawHex(hx.x,hx.y,hx.size,hx.rot,0.14);
+   drawHex(hx.x,hx.y,hx.size*0.58,-hx.rot*0.8,0.09);
+  }
+
+  const maxDist=Math.min(195,Math.max(130,w*0.15));
+  for(let i=0;i<nodes.length;i++){
+   const a=nodes[i];
+   if(!reducedMotion){
+    a.x+=a.vx;a.y+=a.vy;
+    if(a.x<0||a.x>w)a.vx*=-1;
+    if(a.y<0||a.y>h)a.vy*=-1;
+   }
+   for(let j=i+1;j<nodes.length;j++){
+    const b=nodes[j];
+    const dx=b.x-a.x,dy=b.y-a.y;
+    const dist=Math.hypot(dx,dy);
+    if(dist<maxDist){
+     const alpha=(1-dist/maxDist)*0.3;
+     ctx.beginPath();
+     ctx.moveTo(a.x,a.y);
+     ctx.lineTo(b.x,b.y);
+     ctx.strokeStyle=`rgba(74,116,167,${alpha})`;
+     ctx.lineWidth=1;
+     ctx.stroke();
+
+     if(!reducedMotion&&pulses.length<18&&Math.random()<0.0022){
+      pulses.push({a,b,t:0,speed:0.013+Math.random()*0.014});
+     }
+    }
+   }
+  }
+
+  for(let i=pulses.length-1;i>=0;i--){
+   const p=pulses[i];
+   p.t+=p.speed;
+   if(p.t>=1){pulses.splice(i,1);continue;}
+   const px=p.a.x+(p.b.x-p.a.x)*p.t;
+   const py=p.a.y+(p.b.y-p.a.y)*p.t;
+   const grad=ctx.createRadialGradient(px,py,0,px,py,8);
+   grad.addColorStop(0,"rgba(220,234,247,0.98)");
+   grad.addColorStop(0.5,"rgba(59,130,246,0.55)");
+   grad.addColorStop(1,"rgba(18,52,153,0)");
+   ctx.fillStyle=grad;
+   ctx.beginPath();
+   ctx.arc(px,py,8,0,Math.PI*2);
+   ctx.fill();
+  }
+
+  const tSec=time*0.002;
+  for(const n of nodes){
+   const pulse=0.65+0.35*Math.sin(tSec+n.phase);
+   if(n.isHub){
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,n.r*3.2,0,Math.PI*2);
+    ctx.strokeStyle=`rgba(220,234,247,${0.2*pulse})`;
+    ctx.lineWidth=1;
+    ctx.stroke();
+   }
+   ctx.beginPath();
+   ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+   ctx.fillStyle=n.isHub?`rgba(220,234,247,${0.75*pulse})`:`rgba(74,116,167,${0.62*pulse})`;
+   ctx.fill();
+  }
+
+  if(!reducedMotion)requestAnimationFrame(frame);
+ }
+
+ resize();
+ window.addEventListener("resize",resize);
+ requestAnimationFrame(frame);
+})();
+
+render();startAutoplay();updateAutoplayUI();
+</script>
+</body>
+</html>
